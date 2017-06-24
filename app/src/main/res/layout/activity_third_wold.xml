@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.thirdworld.activity.ThirdWoldAct"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/jubaopen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="聚宝盆"/>
+
+            <Button
+                android:id="@+id/qianghuoli"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="抢活力"/>
+            />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="闯关:"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/putongguanka"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="普通"/>
+
+            <Button
+                android:id="@+id/jingyingguanka"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="精英"/>
+
+            <Button
+                android:id="@+id/emengguanka"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="噩梦"/>
+            />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="购买活力:"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/gudinggoumaihuoli"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="固定资金"/>
+
+            <Button
+                android:id="@+id/yuanbaogoumaihuoli"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="元宝"/>
+
+            <Button
+                android:id="@+id/chaoheigoumaihuoli"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="超黑"/>
+            />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="购物-盟宠探险:"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/gudingmengchongtanxian"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="固定资金"/>
+
+            <Button
+                android:id="@+id/yuanbaomengchongtanxian"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="元宝"/>
+
+            <Button
+                android:id="@+id/zanzhudianmengchongtanxian"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="赞助点"/>
+            />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="购物-精髓商城（萌宠碎片）:"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/readjingsuishangcheng"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="读取"/>
+
+            <Button
+                android:id="@+id/goumaimengchongsuipian"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="购买"/>
+
+            <Button
+                android:id="@+id/chongzhijingsuishangcheng"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="重置"
+                />
+            />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="购物-随机杂货："
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/readzahuo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="读取"/>
+
+            <Button
+                android:id="@+id/goumaizahuo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="购买"/>
+
+            <Button
+                android:id="@+id/chongzhizahuo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="重置"
+                />
+            />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="基本任务："
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/jibenrenwuchuangguan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="闯关/测试（活力、神兽丹、五行元素、三界灵丹）"/>
+
+            <Button
+                android:id="@+id/chongzhijibenrenwu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="重置"
+                />
+            />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="无尽天关："
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/tiaozhanshouguanboss"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="挑战"/>
+
+            <Button
+                android:id="@+id/genghuanzhushou"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="更换驻守关卡"
+                />
+
+            <Button
+                android:id="@+id/jiesuan"
+                android:visibility="gone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="结算驻守收益"
+                />
+            />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="14，神兽副本："
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/shuaxinshenshou"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="刷新"/>
+
+            <Button
+                android:id="@+id/tiaozhanshenshou"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="挑战"
+                />
+            />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="15，十二宫："
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/tiaozhan12gong"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="挑战"/>
+
+            <Button
+                android:id="@+id/read12gong"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="读取"/>
+
+            <Button
+                android:id="@+id/chongzhi12gong"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="重置"
+                />
+            />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="14，赏金猎人："
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/shuaxinliewu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="刷新猎物"/>
+
+            <Button
+                android:id="@+id/tiaozhanlieren"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="挑战"
+                />
+            />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="赞助-购买："
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/yuanbao"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="元宝"/>
+
+            <Button
+                android:id="@+id/yuansu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="元素"
+                />
+
+            <Button
+                android:id="@+id/baoxiang"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="宝箱"/>
+
+            <Button
+                android:id="@+id/caixiang"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="材箱"
+                />
+
+            <Button
+                android:id="@+id/shengjicishu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="升级次数"/>
+            />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="赞助-购买超市物品："
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/rongyu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="荣誉"/>
+
+            <Button
+                android:id="@+id/huocui"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="火淬"
+                />
+
+            <Button
+                android:id="@+id/qinglong"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="青龙"/>
+
+            <Button
+                android:id="@+id/baihu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="白虎"
+                />
+
+            <Button
+                android:id="@+id/zhuque"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="朱雀"/>
+
+            <Button
+                android:id="@+id/xuanwu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="玄武"
+                />
+            />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

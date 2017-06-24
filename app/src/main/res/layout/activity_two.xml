@@ -1,0 +1,256 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:id="@+id/llAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="@dimen/com_padding_small"
+        android:padding="@dimen/com_padding_small"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvAccountTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/str_account"
+            android:textSize="@dimen/com_textsize_medium"
+            />
+
+        <EditText
+            android:id="@+id/edtAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/com_padding_small"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableRight="@drawable/icon_arrow_down"
+            android:hint="@string/msg_pls_input_account"
+            android:maxLength="18"
+            android:maxLines="1"
+            android:paddingRight="@dimen/com_padding_medium"
+            android:text=""
+            android:textSize="@dimen/com_textsize_medium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llPwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llAccount"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="@dimen/com_padding_small"
+        android:padding="@dimen/com_padding_small"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvPwdTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/str_pwd"
+            android:textSize="@dimen/com_textsize_medium"
+            />
+
+        <EditText
+            android:id="@+id/edtPwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/com_padding_small"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableRight="@drawable/icon_arrow_down"
+            android:hint="@string/msg_pls_input_pwd"
+            android:maxLength="18"
+            android:maxLines="1"
+            android:paddingRight="@dimen/com_padding_medium"
+            android:text=""
+            android:textSize="@dimen/com_textsize_medium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llServer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llPwd"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="@dimen/com_padding_small"
+        android:padding="@dimen/com_padding_small"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvServerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/str_server"
+            android:textSize="@dimen/com_textsize_medium"
+            />
+
+        <EditText
+            android:id="@+id/edtServer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/com_padding_small"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableRight="@drawable/icon_arrow_down"
+            android:hint="@string/msg_pls_input_server"
+            android:maxLength="18"
+            android:maxLines="1"
+            android:paddingRight="@dimen/com_padding_medium"
+            android:text=""
+            android:textSize="@dimen/com_textsize_medium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llPort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llServer"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="@dimen/com_padding_small"
+        android:padding="@dimen/com_padding_small"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvPortTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/str_port"
+            android:textSize="@dimen/com_textsize_medium"
+            />
+
+        <EditText
+            android:id="@+id/edtPort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/com_padding_small"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableRight="@drawable/icon_arrow_down"
+            android:hint="@string/msg_pls_input_port"
+            android:inputType="number"
+            android:maxLength="18"
+            android:maxLines="1"
+            android:paddingRight="@dimen/com_padding_medium"
+            android:text=""
+            android:textSize="@dimen/com_textsize_medium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llcmd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/com_padding_small">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="命令:"
+            />
+        <EditText
+            android:id="@+id/edtCmd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llPort"
+            android:layout_weight="1"
+            android:hint="给服务器发送信息"
+            android:paddingRight="@dimen/com_padding_medium"
+            tools:text="人物2014获取〓hy814〓123"/>
+
+        <ImageView
+            android:id="@+id/tvChangCmd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/com_padding_medium"
+            android:src="@drawable/icon_arrow_down"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="接收端ip:"
+            />
+
+        <EditText
+            android:id="@+id/edtTarIp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llPort"
+            android:layout_weight="1"
+            android:hint="接收端ip"
+            android:paddingRight="@dimen/com_padding_medium"
+            android:text="183.60.204.64"/>
+
+        <ImageView
+            android:id="@+id/tvChangTarIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/com_padding_medium"
+            android:src="@drawable/icon_arrow_down"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送端ip:"
+            />
+
+        <EditText
+            android:id="@+id/edtLocalIp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="发送端ip"
+            android:paddingRight="@dimen/com_padding_medium"
+            android:text="0"
+            tools:text="119.39.248.63"/>
+
+        <ImageView
+            android:id="@+id/tvLocalIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/com_padding_medium"
+            android:src="@drawable/icon_arrow_down"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llcmd"
+        android:text="发送"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnSend">
+
+        <TextView
+            android:id="@+id/tvLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
+</LinearLayout>

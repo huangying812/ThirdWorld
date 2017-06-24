@@ -1,0 +1,268 @@
+<resources>
+    <string name="app_name">zz盟军</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">设置</string>
+    <string name="userlist">帐号列表</string>
+    <string name="adduser">添加帐号</string>
+    <string name="addusererror">添加帐号失败，用户名不存在或密码错误</string>
+    <string name="addusered">&lt;font color=#E10979&gt;添加帐号失败，这个用户可能已经添加过了&lt;/font&gt;</string>
+    <string name="error">发生未知错误</string>
+    <string name="mj">盟军</string>
+    <string name="account">用户名</string>
+    <string name="pass">密码</string>
+    <string name="userhit">&lt;font color=#E10979&gt;用户名不能为空！&lt;/font&gt;</string>
+    <string name="checkins">%1$s 签到成功</string>
+    <string name="checkno">不是大号也不是标准小号，签到没有意义</string>
+    <string name="dahaoonly">不是大号，不能进行盟军操作</string>
+    <string name="checkinf">用户名 %1$s 对应的用户签到失败，可能密码已实效</string>
+    <string name="passhit">&lt;font color=#E10979&gt;请输入密码！&lt;/font&gt;</string>
+    <string name="submit">提交</string>
+    <string name="checkin">签到</string>
+    <string name="getinfo">资料</string>
+    <string name="buy">资金买</string>
+    <string name="buy2">元宝买</string>
+    <string name="fight">闯关</string>
+    <string name="fightinfo">参战宠物：%1$s\n最高关卡：%2$s\n活力：%3$s\n元宝：%4$s\n固定资产：%5$s\n资金购买次数剩余：%6$s\n元宝购买次数剩余：%7$s</string>
+    <string name="f1">参战宠物：</string>
+    <string name="f2">要闯的精英关卡：</string>
+    <string name="f11">神兽关每关次数：</string>
+    <string name="ssyb">消耗%1$s元宝</string>
+    <string name="qhl">今日第 %1$s 次抢活力，获得 %2$s 活力</string>
+    <string name="f3">活力：</string>
+    <string name="f4">元宝：</string>
+    <string name="f5">固定资产：</string>
+    <string name="f6">资金购买次数剩余：</string>
+    <string name="f7">元宝购买次数剩余：</string>
+    <string name="f10">额外元宝购买次数剩余：</string>
+    <string name="f8">最高普通关卡：</string>
+    <string name="f9">最高神兽关：</string>
+    <string name="pg">普通</string>
+    <string name="jy">精英</string>
+    <string name="getpetinfo">闯关资料</string>
+    <string name="binding">设备绑定</string>
+    <string name="bindingcom">福利大号绑定设备〓%1$s〓%2$s〓ANDROID〓%3$s〓%4$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="checkincom">人物2014获取〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="getinfocom">帮派个人资料〓%1$s〓%2$s〓ANDROID〓%3$s〓%4$s〓设备验证\t183.60.204.64\t183.60.204.64</string>
+    <string name="gudinggoumaihuoli">帮战购买活力〓%1$s〓%2$s〓资金\t183.60.204.64\t183.60.204.64</string>
+    <string name="yuanbaogoumaihuoli">帮战购买活力〓%1$s〓%2$s〓元宝\t183.60.204.64\t183.60.204.64</string>
+    <string name="chaoheigoumaihuoli">帮战购买活力〓%1$s〓%2$s〓超黑〓%3$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="buy3com_rsp">帮派个人购买活力成功〓超黑〓1856.9724〓23765〓5</string>
+    <string name="fightcom">帮战个人开始闯关〓%1$s〓%2$s〓%3$s〓%4$s〓%5$s〓ANDROID〓%6$s〓%7$s〓设备验证\t183.60.204.64\t183.60.204.64</string>
+    <string name="getpetinfocom">帮派个人闯关设定读取〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="lincom">盟军个人每日活力任务领取〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="jubaopen">盟军个人聚宝盆领取奖励〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="ss">盟军神兽副本读取地图〓%1$s〓%2$s〓%3$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="fightcomss">盟军神兽副本挑战开始〓%1$s〓%2$s〓神兽副本%3$s-%4$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="qianghuoli">盟军活力抢活力开始〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="petcom">盟军活力抢活力开始〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="shtqcom">盟军黑店提取兽魂〓%1$s〓%2$s〓%3$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="ystqcom">帮派黑店元素提取〓%1$s〓%2$s〓%3$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="qdgrcom">盟军读取个人圈地运动〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="qdgxcom">盟军圈地读取最新服务器数据\t183.60.204.64\t183.60.204.64</string>
+    <string name="dicecom">盟军圈地掷骰子〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="buildcom">盟军圈地开始进行建造升级〓%1$s〓%2$s〓%3$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="qdbegin">盟军圈地运动本次开通〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="mengchongtanxian_zijin">盟军盟宠探险开始〓%1$s〓%2$s〓金钱〓十次\t183.60.204.64\t183.60.204.64</string>
+    <string name="mengchongtanxian_zijin_rsp">盟军黑店盟宠探险完成〓〓1770.1724〓373848〓1635〓120〓21〓50〓※盟宠经验水_少许〓33486〓2000</string>
+    <string name="mengchongtanxian_yuanbao">盟军盟宠探险开始〓%1$s〓%2$s〓元宝〓十次\t183.60.204.64\t183.60.204.64</string>
+    <string name="mengchongtanxian_yuanbao_rsp">盟军黑店盟宠探险完成〓〓1770.1724〓373848〓1635〓120〓21〓50〓※盟宠经验水_少许〓33486〓2000</string>
+    <string name="mengchongtanxian_zanzhudian">盟军盟宠探险开始〓%1$s〓%2$s〓赞助〓十次\t183.60.204.64\t183.60.204.64</string>
+    <string name="mengchongtanxian_zanzhudian_rsp">盟军黑店盟宠探险完成〓〓1770.1724〓373848〓1635〓120〓21〓50〓※盟宠经验水_少许〓33486〓2000</string>
+    <string name="jingsuishangcheng_read">盟军精髓商城读取〓%1$s〓\t183.60.204.64\t183.60.204.64</string>
+    <string name="jingsuishangcheng_read_rsp">盟军黑店精髓商城读取成功〓11310 碎片_盟宠_浴露鸠 300，11333 碎片_盟宠_雷鸣 300，11304 碎片_盟宠_啮风犬 300，11506 碎片_盟宠_紫衣 500，11319 碎片_盟宠_绿甲 300，11332 碎片_盟宠_小猪芬特 300，11325 碎片_盟宠_暴蓝龙 300，11302 碎片_盟宠_电球宝宝 300，11414 碎片_盟宠_小霹雳 400，11514 碎片_盟宠_菠萝蜜 500，11521 碎片_盟宠_幻云兽 500，11438 碎片_盟宠_青龙使 400〓000000000100〓0</string>
+    <string name="jingsuishangcheng_buy">盟军黑店盟宠精髓购买〓%1$s〓%2$s〓%3$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="jingsuishangcheng_buy_rsp">盟军黑店盟宠精髓购买完成〓000000000100〓32986〓碎片_盟宠_菠萝蜜〓11514</string>
+    <string name="jingsuishangcheng_reset">盟军精髓商城重置〓%1$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="jingsuishangcheng_reset_rsp">盟军黑店精髓商城读取成功〓11435 碎片_盟宠_黄龙使 400，11420 碎片_盟宠_强盗 400，11532 碎片_盟宠_魔女飞云 500，11414 碎片_盟宠_小霹雳 400，11308 碎片_盟宠_拂叶鸠 300，11439 碎片_盟宠_中山猪 400，11332 碎片_盟宠_小猪芬特 300，11401 碎片_盟宠_斑斑虎 400，11324 碎片_盟宠_羽衣 300，11429 碎片_盟宠_铁甲龟 400，11311 碎片_盟宠_奔雷狒 300，11424 碎片_盟宠_吉祥星 400〓000000000000〓1</string>
+    <string name="zahuo_read">盟军黑店随机杂货铺读取〓%1$s〓\t183.60.204.64\t183.60.204.64</string>
+    <string name="zahuo_read_rsp">盟军黑店随机杂货铺读取成功〓※盟宠经验水_巨多 10 2000 100000 200，兽魂_饕餮 20 500 50000 40，宝箱_+5 2 1000 100000 200，潜能_金刚+4 5 300 15000 30，潜能_血牛+5 5 500 25000 50，兽魂_梼杌 20 500 50000 40，潜能_莽夫+5 5 500 25000 50，碎片_星魂_天秤 5 100 5000 10，※盟宠经验水_大量 10 2000 100000 100，※元神+6 20 400 20000 40，兽魂_玄武 20 1000 100000 60，兽魂_青龙 20 1000 100000 60，碎片_星魂_水瓶 3 100 5000 10，碎片_星魂_巨蟹 10 100 5000 10，兽魂_朱雀 20 1000 100000 60〓101000000000000〓7</string>
+    <string name="zahuo_buy">盟军黑店随机杂货购买〓%1$s〓%2$s〓10\t183.60.204.64\t183.60.204.64</string>
+    <string name="zahuo_buy_rsp">盟军黑店随机杂货铺已经购买完成〓101010000000000〓2319〓5418〓568〓5234〓5604〓98〓62〓2〓0〓827〓1423〓3074〓11346.3808〓373628〓潜能_血牛+5</string>
+    <string name="zahuo_reset">盟军黑店随机杂货铺重置〓%1$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="zahuo_reset_rsp">盟军黑店精髓商城读取成功〓11435 碎片_盟宠_黄龙使 400，11420 碎片_盟宠_强盗 400，11532 碎片_盟宠_魔女飞云 500，11414 碎片_盟宠_小霹雳 400，11308 碎片_盟宠_拂叶鸠 300，11439 碎片_盟宠_中山猪 400，11332 碎片_盟宠_小猪芬特 300，11401 碎片_盟宠_斑斑虎 400，11324 碎片_盟宠_羽衣 300，11429 碎片_盟宠_铁甲龟 400，11311 碎片_盟宠_奔雷狒 300，11424 碎片_盟宠_吉祥星 400〓000000000000〓1</string>
+    <string name="lieren_tiaozhan_boss">帮战赏金猎人开始挑战〓%1$s〓%2$s〓%3$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="lieren_tiaozhan_boss_rsp">帮派神兽副本挑战结束〓战胜1〓230〓230〓4〓1423〓827〓372728〓11346.5808〓0 0 100 0〓无〓神兽副本3-10</string>
+    <string name="lieren_shuaxin">盟军读取猎物〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="lieren_shuaxin_rsp">帮派神兽副本读取地图〓20103 20203 20303 20403 20503 20603 20703 20803 20903 21003〓1〓230</string>
+    <string name="shenshou_tiaozhan_boss">盟军神兽副本挑战开始〓%1$s〓%2$s〓神兽副本%3$d-%4$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="shenshou_tiaozhan_boss2">盟军神兽副本挑战开始〓%1$s〓%2$s〓神兽副本%3$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="shenshou_tiaozhan_boss_rsp">帮派神兽副本挑战结束〓战胜1〓230〓230〓4〓1423〓827〓372728〓11346.5808〓0 0 100 0〓无〓神兽副本3-10</string>
+    <string name="shenshou_shuaxin">盟军神兽副本读取地图〓%1$s〓%2$s〓%3$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="shenshou_shuaxin_rsp">帮派神兽副本读取地图〓20103 20203 20303 20403 20503 20603 20703 20803 20903 21003〓1〓230</string>
+    <string name="shiergong_tiaozhan">盟军副本十二宫挑战开始〓%1$s〓%2$s〓26%3$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="shiergong_tiaozhan_rsp1">帮派副本十二宫挑战结束〓战胜3〓18606〓261〓1〓1442〓1813〓509〓1498.5351〓0 3 0 0〓无〓白羊宫〓4291074.850001</string>
+    <string name="shiergong_tiaozhan_rsp2">帮派副本十二宫挑战结束〓战胜3〓18605〓263〓1〓1442〓1813〓509〓1507.1746〓0 0 0 86395〓无〓双子宫〓4291106.850001</string>
+    <string name="shiergong_reset">盟军副本十二宫重置次数〓%1$s〓%2$s〓26%3$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="shiergong_reset_rsp"></string>
+    <string name="shiergong_shuaxin">盟军副本十二宫读取地图〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="shiergong_shuaxin_rsp1">帮派副本十二宫地图〓323232323200000000000000</string>
+    <string name="shiergong_shuaxin_rsp2">帮派副本十二宫地图〓000000000000000000000000</string>
+    <string name="wujin_tiaozhan_boss">盟军无尽关发起BOSS挑战〓%1$s〓%2$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="wujin_tiaozhan_boss_rsp">错误，阁下在无尽 [3] 关卡挑战BOSS失败了！</string>
+    <string name="wujin_genghuan">盟军无尽关更换关卡〓%1$s〓%2$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="wujin_genghuan_rsp">帮派无尽关变更关卡返回〓3〓2017-06-21 18:20:30〓1224368 12243 0 222 0 0 0</string>
+    <string name="wujin_read">盟军读取个人无尽关卡〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="wujin_read_rsp">帮派读取无尽关卡返回〓32〓31〓2017-06-21 12:28:33〓2017年6月21日21时30分36秒</string>
+    <string name="jibenrenwuchuangguan">盟军基本任务挑战开始〓%1$s〓%2$s〓3%3$d%4$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="jibenrenwuchuangguan_rsp">帮派副本基本任务挑战结束〓战胜3〓※增加活力 62；〓活力_菜鸟关〓1</string>
+    <string name="jibenrenw_reset">基本任务重置次数〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="jibenrenw_reset_rsp">帮派基本任务重置成功〓1540〓1</string>
+    <string name="chuangguan">帮战个人开始闯关〓%1$s〓%2$s〓%3$s〓%4$d〓%5$d〓〓〓〓设备验证\t183.60.204.64\t183.60.204.64</string>
+    <string name="chuangguan_rsp">帮派个人闯关结束〓1892.9147〓137078 137078 137078 137078 137078〓24061〓战胜3〓112〓1〓普通〓484647〓1418 1675 3513 1692 275 0 0 0 0〓18425〓1〓备用13〓373849〓0 0 0 0 0 0 0 0 0 0 0 0 0 0〓无〓100〓32986〓92〓0</string>
+    <string name="zanzhu_buy_yuanbao">赞助点兑换元宝〓%1$s〓%2$s〓%3$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="zanzhu_buy_yuanbao_rsp">赞助点兑换元宝成功〓1527〓381889</string>
+    <string name="zanzhu_buy_yuansu">赞助点购买元素〓%1$s〓%2$s〓%3$d〓%4$d〓%5$d〓%6$d〓%7$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="zanzhu_buy_yuansu_rsp">赞助点购买元素成功〓1526〓137249 137544 137262 137283 137297</string>
+    <string name="zanzhu_buy_baoxiang">赞助点购买宝箱〓%1$s〓%2$s〓%3$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="zanzhu_buy_baoxiang_rsp">赞助点兑换宝箱成功〓1476〓18753</string>
+    <string name="zanzhu_buy_cailiao_xiangzi">赞助点兑换材料箱〓%1$s〓%2$s〓%3$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="zanzhu_buy_cailiao_xiangzi_rsp">赞助点兑换材料箱子成功〓1431〓250</string>
+    <string name="zanzhu_buy_shengjicishu">赞助点兑换升级次数〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="zanzhu_buy_shengjicishu_rsp">赞助点兑换神器升级次数成功〓431〓1</string>
+    <string name="zanzhu_buy_honor">赞助点购买超市物品〓%1$s〓%2$s〓※增加荣誉〓0\t183.60.204.64\t183.60.204.64</string>
+    <string name="zanzhu_buy_honor_rsp">成功，阁下本次消耗[100]赞助点，购买[※增加荣誉]*50000！</string>
+    <string name="zanzhu_buy_huocui">赞助点购买超市物品〓%1$s〓%2$s〓※火淬原石〓0\t183.60.204.64\t183.60.204.64</string>
+    <string name="zanzhu_buy_huocui_rsp">成功，阁下本次消耗[100]赞助点，购买[※火淬原石]*200！</string>
+    <string name="zanzhu_buy_qinglong">赞助点购买超市物品〓%1$s〓%2$s〓兽魂_青龙〓0\t183.60.204.64\t183.60.204.64</string>
+    <string name="zanzhu_buy_qinglong_rsp">错误，4-2账号[hy815]本日的赞助超市购买次数已使用过了！</string>
+    <string name="zanzhu_buy_baihu">赞助点购买超市物品〓%1$s〓%2$s〓兽魂_白虎〓0\t183.60.204.64\t183.60.204.64</string>
+    <string name="zanzhu_buy_baihu_rsp">错误，4-2账号[hy815]本日的赞助超市购买次数已使用过了！</string>
+    <string name="zanzhu_buy_xuanwu">赞助点购买超市物品〓%1$s〓%2$s〓兽魂_玄武〓0\t183.60.204.64\t183.60.204.64</string>
+    <string name="zanzhu_buy_xuanwu_rsp">错误，4-2账号[hy815]本日的赞助超市购买次数已使用过了！</string>
+    <string name="zanzhu_buy_zhuque">赞助点购买超市物品〓%1$s〓%2$s〓兽魂_朱雀〓0\t183.60.204.64\t183.60.204.64</string>
+    <string name="zanzhu_buy_zhuqueu_rsp">错误，4-2账号[hy815]本日的赞助超市购买次数已使用过了！</string>
+    <string name="dayly_query">盟军个人每日活力任务查询〓hy814〓123\t183.60.204.64\t183.60.204.64</string>
+    <string name="dayly_query_rsp1">盟军个人每日活力任务查询〓33333333333〓30 30 30 49971 2400 495 16140 80 256 111 10〓4</string>
+    <string name="dayly_query_rsp2">盟军个人每日活力任务查询〓33333333100〓40 30 30 4610 2158 338 1104 80 160 122 10〓2</string>
+    <string name="dayly_reward_lingqu">盟军个人每日活力任务领取〓%1$s〓%2$s〓%3$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="dayly_reward_lingqu_rsp">盟军每日任务领奖完成〓33333333100〓9〓通用星魂Ⅰ〓1</string>
+    <string name="dayly_extra_lingqu">盟军个人每日活力任务累计额外领取〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="dayly_extra_lingqu_rsp">盟军每日任务累计次数奖励完成〓3</string>
+    <string name="mengjun_denglu">帮派个人资料〓%1$s〓%2$s〓〓〓〓设备验证\t183.60.204.64\t183.60.204.64</string>
+    <string name="mengjun_denglu_rsp1">帮派个人资料返回〓hy814〓3※有时很忙〓无〓无〓52491 0 91535 20800 20800〓白发妖姬 土 64000 0 136295 0〓正常〓0.0000〓175025 175025 175025 175025 180025〓18572〓2914018〓0〓140〓54228〓3〓2319〓5418〓568〓5234〓5972〓101〓72〓12〓30〓4291042〓0〓0〓1303.1480〓4160 4472 4192 4284 4080 4456 4180 4276〓6000〓0〓1693〓124〓9588 10345 10196 9947 9588 10345 10196 9947〓2017-05-20〓2288869〓16〓27〓999〓0〓999〓1 1 1〓1423〓3136 3156 3137 3117 3007 3004 2992 3038〓1346〓0〓5〓0 0 0 0 0 0 0 0〓60 60 60 60 60 60 60 60〓155484〓0〓无〓无〓无〓0〓112〓4785 4650 4384 1362 4785 4650 4384 1362〓0 0 0 0 0 0 0 0〓120 60 240 180 120 60 240 180〓未知属性9〓未知属性10〓4〓93198〓80〓112762〓42645〓42645〓110〓2511 120 311</string>
+    <string name="mengjun_denglu_rsp2">帮派个人资料返回〓hy815〓有时候很忙〓打杂杂〓普通成员〓1 0 1000 4838 1150〓※★第1届赛宠 水 64000 45150 43093 0〓正常〓0.0000〓137329 137624 137342 137363 137377〓23905〓811382〓0〓112〓295919〓0〓1418〓1677〓3513〓1692〓275〓0〓0〓0〓0〓487423〓5〓5〓1513.1039〓1395 1275 1350 1275 1365 1350 1395 1320〓0〓999〓18773〓100〓917 932 1014 918 917 932 1014 918〓2017-05-23〓76016〓5〓0〓0〓10〓999〓1 1 0〓588〓253 261 267 265 260 265 257 259〓284〓0〓0〓0 0 0 0 0 0 0 0〓0 0 0 0 0 0 0 0〓0〓1〓无〓无〓无〓0〓92〓3004 2794 593 443 3004 2794 593 443〓0 0 0 0 0 0 0 0〓0 0 0 0 0 0 0 0〓未知属性9〓未知属性10〓41〓2015021〓0〓38050〓0〓0〓90〓140 31 50</string>
+    <string name="heart_beat">心跳开始\t183.60.204.64\t183.60.204.64</string>
+    <string name="ph_buy_huoli_suc">%2$s 购买活力成功!%2$还剩:%3$d，活力还剩：%4$d 购买次数还剩%1$d次 </string>
+    <string name="ph_challenge_guan_suc">闯第 %2$s 关 %1$s难度共 %3$s 次 %4$s 了！获得 %5$s 星评分，还剩 %6$s 活力！</string>
+    <string name="ip">183.60.204.64</string>
+    <string name="port">9103</string>
+    <string name="qiang">抢活力</string>
+    <string name="wupin">盟军物品</string>
+    <string name="pet">身上宠物</string>
+    <string name="rich">圈地运动</string>
+    <string name="top">排行榜</string>
+    <string name="petget">一键提取</string>
+    <string name="jdl">机动力：</string>
+    <string name="qdzj">圈地资金：</string>
+    <string name="qddi">当前地图：</string>
+    <string name="qdtime">时间：</string>
+    <string name="str_account">账号：</string>
+    <string name="msg_pls_input_account">输入账号</string>
+    <string name="msg_pls_input_pwd">输入密码</string>
+    <string name="msg_pls_input_server">输入ip地址</string>
+    <string name="msg_pls_input_port">输入端口</string>
+    <string name="pwd">密码</string>
+    <string name="str_pwd">密码:</string>
+    <string name="str_server">服务器:</string>
+    <string name="str_port">端口:</string>
+    <string name="server">服务器地址</string>
+    <string name="title_activity_login">登陆</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">账号</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登陆</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">账号不可用</string>
+    <string name="error_invalid_password">密码过短</string>
+    <string name="error_incorrect_password">密码不正确</string>
+    <string name="error_field_required">必填项</string>
+    <string name="permission_rationale">权限错误</string>
+    <string name="str_checkincom">人物信息</string>
+    <string name="str_buycom">资金买活力</string>
+    <string name="str_buy2com">元宝买活力</string>
+    <string name="str_getpetinfocom">闯关信息读取</string>
+    <string name="str_lincom">领取活力任务</string>
+    <string name="str_jucom">领取聚宝盆</string>
+    <string name="str_qiangcom">抢活力</string>
+    <string name="str_qdgrcom">读个人圈地信息</string>
+    <string name="str_qdgxcom">读圈地数据</string>
+    <string name="str_dicecom">圈地掷色子</string>
+    <string name="str_qdbegin">开通圈地</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value"/>
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="has_not_open_yet">功能暂未开放！</string>
+    <string name="ph_reset_12gong">12宫副本 %1$s  重置成功！已重置 %2$s 次，</string>
+    <string name="ph_challenge_12gong_rsp">12宫副本-%1$s宫挑战%2$s了，获得%3$s星评分！</string>
+</resources>

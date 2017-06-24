@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.thirdworld.activity.AutoWorkActivity"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="人物获取"/>
+
+        <Button
+            android:id="@+id/btnAuto"
+            android:layout_toRightOf="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自动"/>
+
+        <Button
+            android:id="@+id/btnDaylyTask"
+            android:layout_toRightOf="@+id/btnAuto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="每日任务"/>
+
+        <com.thirdworld.views.ConnectionIndicatorView
+            android:id="@+id/civState"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+
+        <Button
+            android:id="@+id/btnChuangGuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnAuto"
+            android:text="闯关"/>
+
+        <Button
+            android:id="@+id/btnBaseTask"
+            android:layout_toRightOf="@+id/btnChuangGuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnAuto"
+            android:text="基本任务"/>
+
+        <Button
+            android:id="@+id/btn12Gong"
+            android:layout_toRightOf="@+id/btnBaseTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnAuto"
+            android:text="12宫"/>
+
+        <Button
+            android:id="@+id/btnShenShou"
+            android:layout_toRightOf="@+id/btn12Gong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnAuto"
+            android:text="神兽"/>
+
+        <Button
+            android:id="@+id/btnReadHunterMonster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnChuangGuan"
+            android:text="读取猎物"/>
+
+        <Button
+            android:id="@+id/btnChallengeHunterMonster"
+            android:layout_toRightOf="@+id/btnReadHunterMonster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnChuangGuan"
+            android:text="挑战猎物"/>
+
+        <Button
+            android:id="@+id/btnBlackHuoLi"
+            android:layout_toRightOf="@id/btnChallengeHunterMonster"
+            android:layout_below="@id/btnChuangGuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="超黑"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/tvLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
+</LinearLayout>

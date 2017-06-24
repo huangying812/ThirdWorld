@@ -1,0 +1,7 @@
+#Thu Jun 15 13:17:17 CST 2017
+base.0=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_ed84553e95a8793f40218cd19a30ad96c89e0b93
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_2dc6fb8dcb4fa15d4f0ac77a002b22b36111139d\\classes.dex
+base.1=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_2dc6fb8dcb4fa15d4f0ac77a002b22b36111139d
+file.0=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_ed84553e95a8793f40218cd19a30ad96c89e0b93\\classes.dex

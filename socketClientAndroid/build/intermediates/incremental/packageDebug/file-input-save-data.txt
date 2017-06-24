@@ -1,0 +1,21 @@
+#Internal package file, do not edit.
+#Thu Jun 15 13:17:17 CST 2017
+2.base=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\res\\resources-debug.ap_
+5.file=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\activity_main.xml
+5.set=ANDROID_RESOURCE
+3.base=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_ed84553e95a8793f40218cd19a30ad96c89e0b93
+2.set=ANDROID_RESOURCE
+4.base=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_2dc6fb8dcb4fa15d4f0ac77a002b22b36111139d
+count=6
+0.file=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\ic_launcher.png
+5.base=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\res\\resources-debug.ap_
+4.set=DEX
+1.file=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\res\\resources-debug.ap_\\AndroidManifest.xml
+1.set=ANDROID_RESOURCE
+2.file=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\res\\resources-debug.ap_\\resources.arsc
+0.base=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\res\\resources-debug.ap_
+3.file=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_ed84553e95a8793f40218cd19a30ad96c89e0b93\\classes.dex
+3.set=DEX
+1.base=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\res\\resources-debug.ap_
+4.file=I\:\\work\\ThirdWorld\\socketClientAndroid\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_2dc6fb8dcb4fa15d4f0ac77a002b22b36111139d\\classes.dex
+0.set=ANDROID_RESOURCE
