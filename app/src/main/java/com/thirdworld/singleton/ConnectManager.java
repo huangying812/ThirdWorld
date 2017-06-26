@@ -545,9 +545,12 @@ public class ConnectManager {
                 if (split.length >= 2) {
                     //帮派个人购买活力成功〓资金〓881.1315〓25198〓3
                     //帮派个人购买活力成功〓元宝〓121166〓25248〓3
+                    //%2$s 购买活力成功!%2$s还剩:%3$d，当前活力点数：%4$d 购买次数还剩%1$d次
+                    int timesRemain = str2Int(split[4]);
                     String method = split[1];
-
-                    postMsg(R.string.ph_buy_huoli_suc,str2Int(split[4]),method,str2Int(split[2]),str2Int(split[3]));
+                    int resRemain = str2Int(split[2]);
+                    int huoliAmount = str2Int(split[3]);
+                    postMsg(R.string.ph_buy_huoli_suc, timesRemain,method, resRemain, huoliAmount);
                     if (method.equals("资金")) {
                         lingquItem(LingQuType.gudinggoumaihuoli);
                     } else {
