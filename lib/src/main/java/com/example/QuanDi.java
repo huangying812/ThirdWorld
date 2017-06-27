@@ -541,11 +541,15 @@ public class QuanDi implements Runnable {
         }
 
         public boolean BuildIfGood() {
-            if (price >= 80 && price < 1000 && canBuild()) {
+            if (priceFit() && canBuild()) {
                 build();
                 return true;
             }
             return false;
+        }
+
+        private boolean priceFit() {
+            return price >= 80 && price < 1000;
         }
     }
 
