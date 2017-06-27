@@ -4,6 +4,7 @@ import com.thirdworld.entity.UserInfo;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -15,50 +16,18 @@ public class ExampleUnitTest {
 
     @Test
     public void addition_isCorrect() throws Exception {
-        String str = "b0:da:cc:af:ca:b9:d3:c3:cc:d8:ca:e2:a1:fe:68:79:38:31:31:a1:fe:31:32:33:a1:fe:31:30:30:30:31:38:32:30:33:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34";
-        byte[] bts = hexStringToBytes(str);
-        String s = new String(bts, "gbk");
-        logLn(s);
-        str = "b0:da:cc:af:ca:b9:d3:c3:cc:d8:ca:e2:a1:fe:68:79:38:31:31:a1:fe:31:32:33:a1:fe:31:30:30:30:31:38:32:30:38:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34";
-        bts = hexStringToBytes(str);
-        s = new String(bts, "gbk");
-        logLn(s);
-        str = "b0:da:cc:af:ca:b9:d3:c3:cc:d8:ca:e2:a1:fe:68:79:38:31:31:a1:fe:31:32:33:a1:fe:31:30:30:30:31:38:32:30:39:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34";
-        bts = hexStringToBytes(str);
-        s = new String(bts, "gbk");
-        logLn(s);
-        str = "b0:da:cc:af:ca:b9:d3:c3:cc:d8:ca:e2:a1:fe:68:79:38:31:31:a1:fe:31:32:33:a1:fe:31:30:30:30:31:38:32:31:30:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34";
-        bts = hexStringToBytes(str);
-        s = new String(bts, "gbk");
-        logLn(s);
-        str = "b0:da:cc:af:ca:b9:d3:c3:cc:d8:ca:e2:a1:fe:68:79:38:31:31:a1:fe:31:32:33:a1:fe:31:30:30:30:31:38:32:31:31:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34";
-        bts = hexStringToBytes(str);
-        s = new String(bts, "gbk");
-        logLn(s);
-        str = "b0:da:cc:af:ca:b9:d3:c3:cc:d8:ca:e2:a1:fe:68:79:38:31:31:a1:fe:31:32:33:a1:fe:31:30:30:30:31:38:32:31:32:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34";
-        bts = hexStringToBytes(str);
-        s = new String(bts, "gbk");
-        logLn(s);
-        str = "b0:da:cc:af:ca:b9:d3:c3:cc:d8:ca:e2:a1:fe:68:79:38:31:31:a1:fe:31:32:33:a1:fe:31:30:30:30:31:38:32:31:33:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34";
-        bts = hexStringToBytes(str);
-        s = new String(bts, "gbk");
-        logLn(s);
-        str = "b3:c9:b9:a6:a3:a1:b8:f3:cf:c2:ca:b9:d3:c3:20:5b:a1:f9:ba:ec:c0:fb:bd:f0:b5:a4:5d:20:cc:e1:c8:a1:b5:bd:c1:cb:ba:ec:c0:fb:20:5b:33:36:5d";
-        bts = hexStringToBytes(str);
-        s = new String(bts, "gbk");
-        logLn(s);
-        str = "b0:da:cc:af:cb:a2:d0:c2:d0:af:b4:f8:a1:fe:68:79:38:31:31:a1:fe:31:32:33:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34";
-        bts = hexStringToBytes(str);
-        s = new String(bts, "gbk");
-        logLn(s);
-        str = "62:74:78:64:a1:fe:2a:31:36:30:34:34:a1:fe:37:33:31:31:39:a1:fe:30:a1:fe:30:a1:fe:30:a1:fe:33:a1:fe:32:a1:fe:30:a1:fe:30:a1:fe:30:31:2e:a1:f9:c7:ac:c0:a4:b4:fc:20:31:30:30:30:31:38:32:30:30:a1:fe:30:32:2e:a1:f9:b0:d9:b1:a6:c4:d2:20:31:30:30:30:31:38:32:30:31:a1:fe:30:33:2e:b8:ca:c2:b6:be:c6:20:31:30:30:30:31:38:32:30:33:a1:fe:30:34:2e:b8:ca:c2:b6:be:c6:20:31:30:30:30:31:38:32:30:38:a1:fe:30:35:2e:b8:ca:c2:b6:be:c6:20:31:30:30:30:31:38:32:30:39:a1:fe:30:36:2e:b8:ca:c2:b6:be:c6:20:31:30:30:30:31:38:32:31:30:a1:fe:30:37:2e:b8:ca:c2:b6:be:c6:20:31:30:30:30:31:38:32:31:31:a1:fe:30:38:2e:b8:ca:c2:b6:be:c6:20:31:30:30:30:31:38:32:31:32:a1:fe:30:39:2e:b8:ca:c2:b6:be:c6:20:31:30:30:30:31:38:32:31:33:a1:fe:31:30:2e:b8:ca:c2:b6:be:c6:20:31:30:30:30:31:38:32:31:34:a1:fe";
-        bts = hexStringToBytes(str);
-        s = new String(bts, "gbk");
-        logLn(s);
-        str = "b0:da:cc:af:ca:b9:d3:c3:cc:d8:ca:e2:a1:fe:68:79:38:31:31:a1:fe:31:32:33:a1:fe:31:30:30:30:31:38:32:31:33:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34:09:31:38:33:2e:36:30:2e:32:30:34:2e:36:34";
-        bts = hexStringToBytes(str);
-        s = new String(bts, "gbk");
-        logLn(s);
+        ArrayList<String> strs = new ArrayList<>();
+        strs.add("0");
+        strs.add("0");
+        strs.add("0");
+        strs.add("0");
+        byte[] bts;
+        String s;
+        for (String str : strs) {
+            bts = hexStringToBytes(str);
+            s = new String(bts, "gbk");
+            logLn(s);
+        }
     }
 
     @Test
@@ -77,13 +46,13 @@ public class ExampleUnitTest {
 
     @Test
     public void t4() {
-        boolean str = true  ^ false;
+        boolean str = true ^ false;
         System.out.println(str);
-        str = true  ^ true;
+        str = true ^ true;
         System.out.println(str);
-        str = false  ^ false;
+        str = false ^ false;
         System.out.println(str);
-        str = false  ^ true;
+        str = false ^ true;
         System.out.println(str);
     }
 
