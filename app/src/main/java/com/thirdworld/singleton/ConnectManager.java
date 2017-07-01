@@ -19,7 +19,6 @@ import com.thirdworld.rest.ServerSocket;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -232,6 +231,7 @@ public class ConnectManager {
     }
 
     public void reset12Gong(int index) {
+        postMsg(R.string.ph_msg_reset_12gong,index);
         setCmd(R.string.shiergong_reset, index);
     }
 
@@ -286,6 +286,7 @@ public class ConnectManager {
      * 帮派神兽副本挑战结束〓战胜3〓230〓202〓1〓1423〓1699〓57309〓1244.7626〓0 3 0 0〓无〓神兽副本1-2
      */
     public void challengeShenShou(int page, int index) {
+        postMsg(R.string.ph_msg_challenge_shenshou,page,index);
         setCmd(R.string.shenshou_tiaozhan_boss, page, index);
     }
 
@@ -299,7 +300,10 @@ public class ConnectManager {
             String guan = split[11];
             int page = Integer.valueOf(guan.substring(4, 5));
             //int index = Integer.valueOf(guan.substring(4, 5));
-            if (result.startsWith("战胜")) {
+            String end = result.substring(0, 2);
+            String stars;
+            if (end.equals("战胜")) {
+                stars = result.substring(2, 3);
                 readShenShou(page);
                     /*int times = Integer.valueOf(split[4]);
                     String guanStr = split[11];
@@ -316,8 +320,10 @@ public class ConnectManager {
                         challengeShenShou(page, index);
                     }*/
             } else {
+                stars = "0";
                 Log.e(TAG, "神兽挑战失败了：" + res);
             }
+            postMsg(R.string.ph_msg_challenge_shenshou_rsp,page,guan, end, stars);
         } else {
             Log.e(TAG, "神兽挑战失败了：" + res);
         }
@@ -436,49 +442,7 @@ public class ConnectManager {
                 break;
             case "帮派副本十二宫重置成功":
                 //帮派副本十二宫重置成功〓003232323200000000000000〓2866〓2
-                mInfo.resetTimes12Gong++;
-                int i = split[2].indexOf("00");
-                String guan;
-                switch (i / 2) {
-                    case 0:
-                    default:
-                        guan = "白羊宫";
-                        break;
-                    case 1:
-                        guan = "金牛宫";
-                        break;
-                    case 2:
-                        guan = "双子宫";
-                        break;
-                    case 3:
-                        guan = "巨蟹宫";
-                        break;
-                    case 4:
-                        guan = "狮子宫";
-                        break;
-                    case 5:
-                        guan = "处女宫";
-                        break;
-                    case 6:
-                        guan = "天秤宫";
-                        break;
-                    case 7:
-                        guan = "天蝎宫";
-                        break;
-                    case 8:
-                        guan = "射手宫";
-                        break;
-                    case 9:
-                        guan = "山羊宫";
-                        break;
-                    case 10:
-                        guan = "水瓶宫";
-                        break;
-                    case 11:
-                        guan = "双鱼宫";
-                        break;
-                }
-                postMsg(R.string.ph_reset_12gong,guan,mInfo.resetTimes12Gong+"");
+                onReset12GongRsp(split[2]);
             case "帮派副本十二宫地图":
                 if (onRead12GongRsp(split)) {
                     break outer;
@@ -603,6 +567,52 @@ public class ConnectManager {
         return needRepeat;
     }
 
+    private void onReset12GongRsp(String s) {
+        mInfo.resetTimes12Gong++;
+        int i = s.indexOf("00");
+        String guan;
+        switch (i / 2) {
+            case 0:
+            default:
+                guan = "白羊宫";
+                break;
+            case 1:
+                guan = "金牛宫";
+                break;
+            case 2:
+                guan = "双子宫";
+                break;
+            case 3:
+                guan = "巨蟹宫";
+                break;
+            case 4:
+                guan = "狮子宫";
+                break;
+            case 5:
+                guan = "处女宫";
+                break;
+            case 6:
+                guan = "天秤宫";
+                break;
+            case 7:
+                guan = "天蝎宫";
+                break;
+            case 8:
+                guan = "射手宫";
+                break;
+            case 9:
+                guan = "山羊宫";
+                break;
+            case 10:
+                guan = "水瓶宫";
+                break;
+            case 11:
+                guan = "双鱼宫";
+                break;
+        }
+        postMsg(R.string.ph_reset_12gong,guan,mInfo.resetTimes12Gong+"");
+    }
+
     private void postMsg(@StringRes int resId, Object... args) {
         postMsg(LogStr.newInstance(resId,args));
     }
@@ -629,14 +639,13 @@ public class ConnectManager {
             //盟军个人每日活力任务查询〓33333333100〓40 30 30 4610 2158 338 1104 80 160 122 10〓2
             //盟军个人每日活力任务查询〓33333333333〓30 30 30 49971 2400 495 16140 80 256 111 10〓4
             char[] chars = split[1].toCharArray();
-            char[] states = Arrays.copyOfRange(chars, chars.length - 11, chars.length);
-            String[] datas = split[2].split(" ");
+            String[] datas = split[2].trim().split(" ");
             int i = 0;
             int count = 0;
             middle:
-            for (; i < states.length; ) {
+            for (; i < chars.length; ) {
                 int doneTimes = Integer.valueOf(datas[i]);
-                char c = states[i++];
+                char c = chars[i++];
                 if ('3' != c) {
                     switch (i) {
                         case 1://盟宠集市普通探险	 	 	30
@@ -659,9 +668,9 @@ public class ConnectManager {
                             if (doneTimes >= PET_EXPLORE_TIMES_ZZ) {
                                 lingquDaylyReward(i);
                             } else {
-                                Log.e(TAG, "update: 要赞助点萌宠探险，停止了");
-//                                                    petExplore(MoneyType.zanZhuDian);
-//                                                    needRepeat = true;
+//                                Log.e(TAG, "update: 要赞助点萌宠探险，停止了");
+                                petExplore(MoneyType.zanZhuDian);
+                                needRepeat = true;
                             }
                             break;
                         case 4://使用活力	 	 	目标3000
@@ -671,8 +680,9 @@ public class ConnectManager {
                             } else {
                                 gap = USE_HUO_LI_AMOUNT - doneTimes;
                                 int times = (int) Math.ceil(gap / 3f);
-                                Log.e(TAG, "update: 要闯精英关卡，停止了，目标" + times + " 次 " + jingYingGuanka + " 关");
-//                                                    challengeGuan("精英", times, jingYingGuanka);
+                                postMsg(R.string.ph_msg_dayly_task_huoli_unreach,doneTimes, gap, times);
+//                                Log.e(TAG, "update: 要闯精英关卡，停止了，目标" + times + " 次 " + jingYingGuanka + " 关");
+                                challengeGuan("精英", times, jingYingGuanka);
                             }
                             break;
                         case 5://使用赞助点	 	 	目标2000
@@ -680,7 +690,9 @@ public class ConnectManager {
                             if (doneTimes >= USE_ZAN_ZHU_DIAN_AMOUNT) {
                                 lingquDaylyReward(i);
                             } else {
+                                gap = USE_ZAN_ZHU_DIAN_AMOUNT - doneTimes;
                                 Log.e(TAG, "update: 赞助点消费不够2000，停止了");
+                                postMsg(R.string.ph_msg_dayly_task_zanzhu_unreach,doneTimes, gap);
                                 continue middle;
                             }
                         case 6://进行普通关卡次数	 	 	目标300
@@ -688,8 +700,9 @@ public class ConnectManager {
                                 lingquDaylyReward(i);
                             } else {
                                 gap = CHUANG_GUAN_TIMES_PT - doneTimes;
-                                Log.e(TAG, "update: 要闯普通关卡，停止了，目标" + gap + " 次 " + puTongGuanka + " 关");
-//                                                  challengeGuan("普通", gap, puTongGuanka);
+                                postMsg(R.string.ph_msg_dayly_task_putong_chuang_guan_unreach, doneTimes, gap);
+//                                Log.e(TAG, "update: 要闯普通关卡，停止了，目标" + gap + " 次 " + puTongGuanka + " 关");
+                                  challengeGuan("普通", gap, puTongGuanka);
                             }
                             break;
                         case 7://进行精英关卡次数	 	 	目标300
@@ -697,8 +710,9 @@ public class ConnectManager {
                                 lingquDaylyReward(i);
                             } else {
                                 gap = CHUANG_GUAN_TIMES_JY - doneTimes;
-                                Log.e(TAG, "update: 要闯精英关卡，停止了，目标" + gap + " 次 " + puTongGuanka + " 关");
-//                                                  challengeGuan("精英", gap, jingYingGuanka);
+                                postMsg(R.string.ph_msg_dayly_task_jingying_chuang_guan_unreach, doneTimes, gap);
+//                                Log.e(TAG, "update: 要闯精英关卡，停止了，目标" + gap + " 次 " + puTongGuanka + " 关");
+                                  challengeGuan("精英", gap, jingYingGuanka);
                             }
                             break;
                         case 8://进行噩梦关卡次数	 	 	目标80
@@ -707,8 +721,9 @@ public class ConnectManager {
                                 lingquDaylyReward(i);
                             } else {
                                 gap = CHUANG_GUAN_TIMES_EM - doneTimes;
+                                postMsg(R.string.ph_msg_dayly_task_emeng_chuang_guan_unreach, doneTimes, gap);
                                 Log.e(TAG, "update: 要闯噩梦关卡，停止了，目标" + gap + " 次 " + eMengGuanka + " 关");
-//                                                  challengeGuan("噩梦", gap, eMengGuanka);
+                                challengeGuan("噩梦", gap, eMengGuanka);
                             }
                             break;
                         case 9://进行十二宫副本次数	 	目标100
@@ -716,8 +731,9 @@ public class ConnectManager {
                                 lingquDaylyReward(i);
                             } else {
                                 gap = SHI_ER_GONG_TIMES - doneTimes;
+                                postMsg(R.string.ph_msg_dayly_task_12gong_unreach, doneTimes, gap);
                                 Log.e(TAG, "update: 要进行十二宫副本，停止了，还差" + gap + " 次");
-//
+                                read12Gong();
                             }
 
                             break;
@@ -726,8 +742,9 @@ public class ConnectManager {
                                 lingquDaylyReward(i);
                             } else {
                                 gap = SHEN_SHOU_TIMES - doneTimes;
+                                postMsg(R.string.ph_msg_dayly_task_shenshou_unreach, doneTimes, gap);
                                 Log.e(TAG, "update: 要进行神兽副本，停止了，还差" + gap + " 次");
-//
+                                readShenShou();
                             }
                             break;
                         case 11://进行赏金猎人副本次数	 目标10
@@ -735,15 +752,18 @@ public class ConnectManager {
                                 lingquDaylyReward(i);
                             } else {
                                 gap = GOLDEN_HUNTER_TIMES - doneTimes;
+                                postMsg(R.string.ph_msg_dayly_task_hunter_unreach, doneTimes, gap);
                                 Log.e(TAG, "update: 要进行赏金猎人副本，停止了，还差" + gap + " 次");
                                 continue middle;
                             }
                     }
                     break;
                 } else {
-                    count++;
+                    postMsg(R.string.ph_msg_dayly_task_done,i);
                 }
+                count += Character.digit(c,10);
             }
+            postMsg(R.string.ph_msg_dayly_task_done_counts,count);
             if (count > 8) {
                 lingquDaylyReward();
             }
@@ -832,6 +852,7 @@ public class ConnectManager {
     }
 
     private void readWuJin() {
+        postMsg(R.string.msg_read_wujin);
         setCmd(R.string.wujin_read);
     }
 
@@ -849,6 +870,7 @@ public class ConnectManager {
     }
 
     private void challengeWuJinBoss(int curGuan) {
+        postMsg(R.string.ph_msg_challenge_wujin,curGuan);
         sendCmd(R.string.wujin_tiaozhan_boss, account, curGuan);
     }
 
@@ -861,6 +883,7 @@ public class ConnectManager {
     }
 
     private void changeWuJinGuan(int tarGuan) {
+        postMsg(R.string.ph_msg_change_wujin,tarGuan);
         sendCmd(R.string.wujin_genghuan, account, tarGuan);
     }
 
@@ -889,6 +912,7 @@ public class ConnectManager {
     }
 
     public void readDaylyTask() {
+        postMsg(R.string.msg_read_dayly_task);
         setCmd(R.string.dayly_query);
     }
 
@@ -993,6 +1017,7 @@ public class ConnectManager {
      * 领取 每日任务的奖励 的命令
      */
     public void lingquDaylyReward(int index) {
+        postMsg(R.string.ph_msg_lingqu_dayly_reward,index);
         setCmd(R.string.dayly_reward_lingqu, index);
     }
 
@@ -1000,6 +1025,7 @@ public class ConnectManager {
      * 领取 每日活力任务累计额外的奖励 的命令
      */
     public void lingquDaylyReward() {
+        postMsg(R.string.ph_msg_lingqu_dayly_extra_reward);
         setCmd(R.string.dayly_extra_lingqu);
     }
 
@@ -1007,21 +1033,29 @@ public class ConnectManager {
      * 领取资源类的命令
      */
     public void lingquItem(@LingQuType int type) {
+
+        String s = null;
         switch (type) {
 
             case LingQuType.yuanbaogoumaihuoli:
+                s = "元宝购买活力";
                 setCmd(R.string.yuanbaogoumaihuoli);
                 break;
             case LingQuType.jubaopen:
+                s = "元宝聚宝盆";
                 setCmd(R.string.jubaopen);
                 break;
             case LingQuType.qianghuoli:
+                s = "抢活力";
                 setCmd(R.string.qianghuoli);
                 break;
             case LingQuType.gudinggoumaihuoli:
+                s = "固定资金购买活力";
                 setCmd(R.string.gudinggoumaihuoli);
                 break;
         }
+
+        postMsg(R.string.ph_msg_lingqu_items,s);
     }
 
     @IntDef({ZanZhuType.cailiaoCast,
@@ -1094,7 +1128,7 @@ public class ConnectManager {
     /**
      * 赞助点超市购买物品，另外加上神器升级次数
      */
-    private void zanzhuBuyItems(@SuperMarketType int type) {
+    public void zanzhuBuyItems(@SuperMarketType int type) {
         switch (type) {
 
             case SuperMarketType.baihu:

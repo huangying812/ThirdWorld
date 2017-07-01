@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/honor"
+        android:title="@string/honor"
+        />
+    <item
+        android:id="@+id/huocui"
+        android:title="@string/huocui"
+        />
+    <item
+        android:id="@+id/qinglong"
+        android:title="@string/qinglong"
+        />
+    <item
+        android:id="@+id/baihu"
+        android:title="@string/baihu"
+        />
+    <item
+        android:id="@+id/xuanwu"
+        android:title="@string/xuanwu"
+        />
+    <item
+        android:id="@+id/zhuque"
+        android:title="@string/zhuque"
+        />
+    <item
+        android:id="@+id/shengjicishu"
+        android:title="@string/shengjicishu"
+        />
+</menu>

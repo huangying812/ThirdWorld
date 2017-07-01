@@ -40,38 +40,38 @@ public class QuanDi implements Runnable {
     public static String cmdReadP = "盟军读取个人圈地运动〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64";
     public static String cmdEnable = "盟军圈地运动本次开通〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64";
     public static String cmdZhiSZ = "盟军圈地掷骰子〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64";
-    public static String cmdZhiZD = "盟军圈地掷骰子指定〓%1$s〓%2$s〓%d\t183.60.204.64\t183.60.204.64";
-    public static String cmdBuild = "盟军圈地开始进行建造升级〓%1$s〓%2$s〓%d\t183.60.204.64\t183.60.204.64";
+    public static String cmdZhiZD = "盟军圈地掷骰子指定〓%1$s〓%2$s〓%3$d\t183.60.204.64\t183.60.204.64";
+    public static String cmdBuild = "盟军圈地开始进行建造升级〓%1$s〓%2$s〓%3$d\t183.60.204.64\t183.60.204.64";
 
     private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     private static final SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy年MM月dd日hh时mm分ss秒");
     private static final SimpleDateFormat dateFm = new SimpleDateFormat("EEEE");
     //常量
-    //服务器IP  
+    //服务器IP
     private final String SERVER_IP = "183.60.204.64";
-    //语音端口  
+    //语音端口
     private final int SERVER_PORT_CMD = 9103;
-    //本地端口  
+    //本地端口
     private final int LOCAL_PORT_CMD = 9103;
 
-    //网络相关变量  
-    //最大帧长  
+    //网络相关变量
+    //最大帧长
     private static final int MAX_DATA_PACKET_LENGTH = 1024 * 50;
     private ExecutorService mSendExecutor;
 
     //端口
     private Socket mTcpSocket;
     private boolean flagOpen = true;
-    //输入流  
+    //输入流
     private InputStream mInputStream;
     //输出流
     private OutputStream strSend;
 
     //网络连接标志
     private volatile boolean mFlagConnect = false;
-    //接收数据缓存  
+    //接收数据缓存
     private byte[] mBufferReceive = new byte[MAX_DATA_PACKET_LENGTH];
-    //接收数据包  
+    //接收数据包
     private DatagramPacket dPacket;
     private volatile boolean isSending;
     private volatile LinkedList<String> pendingCmd = new LinkedList<>();
@@ -91,7 +91,7 @@ public class QuanDi implements Runnable {
     public static void main(String... args) {
 //        log(getDate("2017-06-26 19:28:09").toString());
         QuanDi quanDi = new QuanDi();
-        quanDi.account = "hy815";
+        quanDi.account = "hy814";
         quanDi.pwd = "123";
         new Thread(quanDi).start();
     }
@@ -132,7 +132,7 @@ public class QuanDi implements Runnable {
      */
     public QuanDi() {
         mSendExecutor = Executors.newSingleThreadExecutor();
-        //接收包  
+        //接收包
         dPacket = new DatagramPacket(mBufferReceive, MAX_DATA_PACKET_LENGTH);
     }
 
@@ -158,8 +158,8 @@ public class QuanDi implements Runnable {
 
     @Override
     public void run() {
-        //连接服务器  
-        //端口  
+        //连接服务器
+        //端口
         try {
             mTcpSocket = new Socket(SERVER_IP, SERVER_PORT_CMD);
             InetAddress localAddress = mTcpSocket.getLocalAddress();
@@ -272,12 +272,12 @@ public class QuanDi implements Runnable {
                     //本周个人最高可占领地皮数
                     mMaxBuild = str2Int(split[8]);
                     log("最新坐标:" + mCurMapZuobiao
-                        + "-用户id：" + mId
-                        + "-下次可操作时间：" + mTimeCanOper.toString()
-                        + "-当前时间：" + mTimeCur.toString() + dateFm.format(mTimeCur)
-                        + "-机动力：" + mTimes
-                        + "-资金：" + mZijin
-                        + "-本周个人最高可占领地皮数：" + mMaxBuild
+                            + "-用户id：" + mId
+                            + "-下次可操作时间：" + mTimeCanOper.toString()
+                            + "-当前时间：" + mTimeCur.toString() + getWeekDays()
+                            + "-机动力：" + mTimes
+                            + "-资金：" + mZijin
+                            + "-本周个人最高可占领地皮数：" + mMaxBuild
                     );
                     if (mZijin <= 0) {
                         setCmd(cmdEnable);
@@ -290,7 +290,7 @@ public class QuanDi implements Runnable {
                     processMapData(split[1]);
 //                    build();
                     setCmd(cmdZhiSZ);
-//                    zhiDing(9);
+//                    zhiDing(6);
 
                     break;
                 case "盟军圈地掷骰子成功返回":
@@ -328,21 +328,46 @@ public class QuanDi implements Runnable {
                     Map map = mMaps.get(index - 1);
                     log(map.toString());
                     processMapData(split[11]);
-                    /*if (!map.BuildIfGood()) {
+                    if (!map.BuildIfGood()) {
                         try {
                             Thread.sleep(2500);
-                            addAndSend(cmdZhiSZ);
+                            setCmd(cmdZhiSZ);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                    }*/
+                    }
                     break;
                 case "盟军圈地建造升级返回":
 //盟军圈地建造升级返回〓20009〓920〓弄梅洞窟 80 4 1 0 0 0 0〓80
+//盟军圈地建造升级返回〓20009〓9355〓最后的房间 70 115 2 4 1 0 0〓70
+                    最新坐标(split[1]);
+
+                    if (myHouses.size() < 7 && mCurMapZuobiao < 20000) {
+                        Map map2 = mMaps.get(mCurMapIndex - 1);
+                        if (!map2.BuildIfGood()) {
+                            try {
+                                Thread.sleep(2500);
+                                setCmd(cmdZhiSZ);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    } else {
+                        try {
+                            Thread.sleep(2500);
+                            setCmd(cmdZhiSZ);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
                     break;
             }
 
         }
+    }
+
+    private String getWeekDays() {
+        return dateFm.format(mTimeCur);
     }
 
     public void setCmd(String cmdStrResId) {
@@ -513,8 +538,19 @@ public class QuanDi implements Runnable {
             return 0;
         }
 
+        public boolean levelAllow() {
+            if (mId == user1) {
+                return levle1 < 5;
+            } else if (mId == user2) {
+                return levle2 < 5;
+            } else if (mId == user3) {
+                return levle3 < 5;
+            }
+            return true;
+        }
+
         public boolean isFull() {
-            return user1 > 0 && user2 > 0 && user3 > 0;
+            return user1 > 0 && user2 > 0 && user3 > 0 || myHouses.size() >= 7;
         }
 
         public boolean canBuild() {
@@ -541,7 +577,7 @@ public class QuanDi implements Runnable {
         }
 
         public boolean BuildIfGood() {
-            if (priceFit() && canBuild()) {
+            if (priceFit() && canBuild() && levelAllow()) {
                 build();
                 return true;
             }
@@ -549,7 +585,30 @@ public class QuanDi implements Runnable {
         }
 
         private boolean priceFit() {
-            return price >= 80 && price < 1000;
+            int priceBaseValue = 80;
+            switch (getWeekDays()) {
+                case "星期一":
+                case "星期二":
+                    priceBaseValue = 80;
+                    break;
+                case "星期三":
+                    priceBaseValue = 70;
+                    break;
+                case "星期四":
+                    priceBaseValue = 60;
+                    break;
+                case "星期五":
+                    priceBaseValue = 50;
+                    break;
+                case "星期六":
+                    priceBaseValue = 40;
+                    break;
+                case "星期日":
+                case "星期天":
+                    priceBaseValue = 40;
+                    break;
+            }
+            return price >= priceBaseValue && price < 1000;
         }
     }
 

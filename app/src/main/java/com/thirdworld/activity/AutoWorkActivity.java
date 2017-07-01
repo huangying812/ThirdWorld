@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.thirdworld.application.SpUtils;
@@ -60,6 +61,7 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.btnDaylyTask).setOnClickListener(this);
         findViewById(R.id.btnReadHunterMonster).setOnClickListener(this);
         findViewById(R.id.btnChallengeHunterMonster).setOnClickListener(this);
+        findViewById(R.id.btnZanZhuBuy).setOnClickListener(this);
         btnAuto.setOnClickListener(this);
         btnBlackHuoLi.setOnClickListener(this);
         btnChuangGuan.setOnClickListener(this);
@@ -96,6 +98,40 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.btnAuto:
                 manager.autoStart();
+                break;
+            case R.id.btnZanZhuBuy:
+                PopupMenu popupMenu = new PopupMenu(this, v);
+                popupMenu.inflate(R.menu.zanzhu_buy);
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case R.id.baihu:
+                                manager.zanzhuBuyItems(ConnectManager.SuperMarketType.baihu);
+                                break;
+                            case R.id.honor:
+                                manager.zanzhuBuyItems(ConnectManager.SuperMarketType.honor);
+                                break;
+                            case R.id.huocui:
+                                manager.zanzhuBuyItems(ConnectManager.SuperMarketType.huocui);
+                                break;
+                            case R.id.qinglong:
+                                manager.zanzhuBuyItems(ConnectManager.SuperMarketType.qinglong);
+                                break;
+                            case R.id.shengjicishu:
+                                manager.zanzhuBuyItems(ConnectManager.SuperMarketType.shengjicishu);
+                                break;
+                            case R.id.xuanwu:
+                                manager.zanzhuBuyItems(ConnectManager.SuperMarketType.xuanwu);
+                                break;
+                            case R.id.zhuque:
+                                manager.zanzhuBuyItems(ConnectManager.SuperMarketType.zhuque);
+                                break;
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
                 break;
             case R.id.btnBlackHuoLi:
                 View buyHuoli = View.inflate(this,R.layout.view_common_times_input,null);
