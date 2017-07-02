@@ -1,4 +1,4 @@
-package com.example;
+package com.thirdworld.rest;
 
 
 import java.io.Closeable;
