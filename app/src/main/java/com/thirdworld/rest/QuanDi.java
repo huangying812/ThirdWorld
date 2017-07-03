@@ -93,9 +93,7 @@ public class QuanDi implements Runnable {
 
     public static void main(String... args) {
 //        log(getDate("2017-06-26 19:28:09").toString());
-        QuanDi quanDi = new QuanDi();
-        quanDi.account = "hy814";
-        quanDi.pwd = "123";
+        QuanDi quanDi = new QuanDi("hy814", "123");
         new Thread(quanDi).start();
     }
 
@@ -132,8 +130,13 @@ public class QuanDi implements Runnable {
 
     /**
      * @brief 构造函数
+     * @param account
+     * @param pwd
      */
-    public QuanDi() {
+    public QuanDi(String account, String pwd) {
+
+        this.account = account;
+        this.pwd = pwd;
         mSendExecutor = Executors.newSingleThreadExecutor();
         //接收包
         dPacket = new DatagramPacket(mBufferReceive, MAX_DATA_PACKET_LENGTH);
@@ -376,6 +379,10 @@ public class QuanDi implements Runnable {
                 + "-地皮编号：" + index + "-特殊事件的数值：" + un2
                 + "-特殊事件：" + event
         );
+        postMsg("圈地-掷骰子结果-点数："+ dianShu
+                + "-机动力：" + mTimes
+                + "-路费：" + cost + "-资金：" + mZijin
+                + "-地皮：" + index + "-特殊事件：" + event + "-影响：" + un2);
         processMapData(split[11]);
         map = mMaps.get(index - 1);
         log(map.toString());
@@ -514,11 +521,15 @@ public class QuanDi implements Runnable {
         if (!myHouses.isEmpty()) {
 
             log("我的地皮：");
+            StringBuilder sb = new StringBuilder("我的地皮：");
             for (Map house : myHouses) {
                 log("\t" + house.toString());
+                sb.append(house.showInfo() + "\r\n");
             }
+            postMsg(sb.toString());
         } else {
             log("我 还没有占领 地皮。");
+            postMsg("我 还没有占领 地皮~");
         }
     }
 
@@ -569,10 +580,14 @@ public class QuanDi implements Runnable {
             price = str2Int(split[i++]);
             user1 = str2Int(split[i++]);
             levle1 = str2Int(split[i++]);
-            user2 = str2Int(split[i++]);
-            levle2 = str2Int(split[i++]);
-            user3 = str2Int(split[i++]);
-            levle3 = str2Int(split[i++]);
+            if (split.length > 4) {
+                user2 = str2Int(split[i++]);
+                levle2 = str2Int(split[i++]);
+                if (split.length > 6) {
+                    user3 = str2Int(split[i++]);
+                    levle3 = str2Int(split[i++]);
+                }
+            }
             if (price == 90) {
                 all90++;
                 if (!isFull() && !isMyHouse()) {

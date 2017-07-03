@@ -14,6 +14,7 @@ import com.thirdworld.entity.UserInfo;
 import com.thirdworld.entity.events.GetServerPack;
 import com.thirdworld.entity.events.LogStr;
 import com.thirdworld.entity.events.LoginSuccess;
+import com.thirdworld.rest.QuanDi;
 import com.thirdworld.rest.ServerSocket;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -970,6 +971,12 @@ public class ConnectManager {
                 setCmd(R.string.mengjun_denglu);
                 break;
         }
+    }
+
+    public void startQuanDi() {
+
+        QuanDi quanDi = new QuanDi(account, pwd);
+        mExecutorService.execute(quanDi);
     }
 
     @IntDef({

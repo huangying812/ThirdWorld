@@ -19,6 +19,7 @@ import com.thirdworld.entity.ChuangGuanProf;
 import com.thirdworld.entity.events.ConnectState;
 import com.thirdworld.entity.events.GetServerPack;
 import com.thirdworld.entity.events.LogStr;
+import com.thirdworld.rest.QuanDi;
 import com.thirdworld.singleton.ConnectManager;
 import com.thirdworld.views.ConnectionIndicatorView;
 
@@ -62,6 +63,7 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.btnReadHunterMonster).setOnClickListener(this);
         findViewById(R.id.btnChallengeHunterMonster).setOnClickListener(this);
         findViewById(R.id.btnZanZhuBuy).setOnClickListener(this);
+        findViewById(R.id.btnQuanDi).setOnClickListener(this);
         btnAuto.setOnClickListener(this);
         btnBlackHuoLi.setOnClickListener(this);
         btnChuangGuan.setOnClickListener(this);
@@ -95,6 +97,9 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.btnLogin:
                 manager.login(loginCounts++ % 2 + 1);
+                break;
+            case R.id.btnQuanDi:
+                manager.startQuanDi();
                 break;
             case R.id.btnAuto:
                 manager.autoStart();
