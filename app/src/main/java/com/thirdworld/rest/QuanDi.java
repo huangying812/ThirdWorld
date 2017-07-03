@@ -1,6 +1,7 @@
 package com.thirdworld.rest;
 
 
+import com.thirdworld.EventUtil;
 import com.thirdworld.entity.events.LogStr;
 
 import java.io.Closeable;
@@ -548,7 +549,7 @@ public class QuanDi implements Runnable {
     }
 
     public void postMsg(LogStr event) {
-//        EventUtil.post(event);
+        EventUtil.post(event);
         log("app日志显示：" + event.logMsg);
     }
 
