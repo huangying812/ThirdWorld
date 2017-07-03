@@ -14,10 +14,11 @@ import android.widget.Toast;
 
 import com.thirdworld.EventUtil;
 import com.thirdworld.application.ContextHolder;
-import com.thirdworld.entity.events.LoginSuccess;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+
+import szz.com.baselib.entity.events.LoginSuccess;
 
 /**
  * 作者：Ying.Huang on 2017/6/16 13:23

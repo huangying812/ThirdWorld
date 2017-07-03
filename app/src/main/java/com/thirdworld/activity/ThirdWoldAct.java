@@ -5,9 +5,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 
-import com.thirdworld.rest.ServerSocket;
-import com.thirdworld.singleton.ConnectManager;
+import szz.com.baselib.singleton.ConnectManager;
 
+import szz.com.baselib.rest.ServerSocket;
 import szz.com.thirdworld.R;
 
 

@@ -27,10 +27,7 @@ import android.widget.Toast;
 
 import com.thirdworld.application.ContextHolder;
 import com.thirdworld.application.SpUtils;
-import com.thirdworld.entity.events.ConnectState;
-import com.thirdworld.entity.events.GetServerPack;
-import com.thirdworld.rest.ServerSocket;
-import com.thirdworld.singleton.ConnectManager;
+import szz.com.baselib.singleton.ConnectManager;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.json.JSONArray;
@@ -49,6 +46,9 @@ import java.text.SimpleDateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import szz.com.baselib.entity.events.ConnectState;
+import szz.com.baselib.entity.events.GetServerPack;
+import szz.com.baselib.rest.ServerSocket;
 import szz.com.thirdworld.R;
 
 
@@ -57,7 +57,7 @@ public class SocketActivity extends BaseActivity implements OnClickListener{
     private TextView mTvLog;
     private Button send;
     private EditText mEdtMsg;
-    ServerSocket mServerSocket;
+    private ServerSocket mServerSocket;
     private String curCmd;
     public Handler myHandler = new Handler() {
         @Override

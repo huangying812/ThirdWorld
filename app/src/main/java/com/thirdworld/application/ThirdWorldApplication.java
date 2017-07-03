@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.thirdworld.EventUtil;
-import com.thirdworld.singleton.ConnectManager;
+import szz.com.baselib.singleton.ConnectManager;
 
 /**
  * 作者：Ying.Huang on 2017/6/14 09:10

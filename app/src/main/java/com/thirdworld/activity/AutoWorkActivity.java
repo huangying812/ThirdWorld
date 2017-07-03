@@ -15,17 +15,16 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.thirdworld.application.SpUtils;
-import com.thirdworld.entity.ChuangGuanProf;
-import com.thirdworld.entity.events.ConnectState;
-import com.thirdworld.entity.events.GetServerPack;
-import com.thirdworld.entity.events.LogStr;
-import com.thirdworld.rest.QuanDi;
-import com.thirdworld.singleton.ConnectManager;
 import com.thirdworld.views.ConnectionIndicatorView;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import szz.com.baselib.entity.ChuangGuanProf;
+import szz.com.baselib.entity.events.ConnectState;
+import szz.com.baselib.entity.events.GetServerPack;
+import szz.com.baselib.entity.events.LogStr;
+import szz.com.baselib.singleton.ConnectManager;
 import szz.com.thirdworld.R;
 
 public class AutoWorkActivity extends BaseActivity implements View.OnClickListener {
@@ -63,7 +62,7 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.btnReadHunterMonster).setOnClickListener(this);
         findViewById(R.id.btnChallengeHunterMonster).setOnClickListener(this);
         findViewById(R.id.btnZanZhuBuy).setOnClickListener(this);
-        findViewById(R.id.btnQuanDi).setOnClickListener(this);
+//        findViewById(R.id.btnQuanDi).setOnClickListener(this);
         btnAuto.setOnClickListener(this);
         btnBlackHuoLi.setOnClickListener(this);
         btnChuangGuan.setOnClickListener(this);
@@ -98,9 +97,9 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
             case R.id.btnLogin:
                 manager.login(loginCounts++ % 2 + 1);
                 break;
-            case R.id.btnQuanDi:
+            /*case R.id.btnQuanDi:
                 manager.startQuanDi();
-                break;
+                break;*/
             case R.id.btnAuto:
                 manager.autoStart();
                 break;

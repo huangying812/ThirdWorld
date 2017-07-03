@@ -30,15 +30,15 @@ import android.widget.TextView;
 
 import com.thirdworld.EventUtil;
 import com.thirdworld.application.SpUtils;
-import com.thirdworld.entity.events.GetServerPack;
-import com.thirdworld.entity.events.LoginSuccess;
-import com.thirdworld.singleton.ConnectManager;
+import szz.com.baselib.singleton.ConnectManager;
 
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import szz.com.baselib.entity.events.GetServerPack;
+import szz.com.baselib.entity.events.LoginSuccess;
 import szz.com.thirdworld.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
