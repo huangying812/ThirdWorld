@@ -2,6 +2,8 @@ package szz.com.baselib.entity;
 
 import android.support.annotation.NonNull;
 
+import java.text.DecimalFormat;
+
 import szz.com.baselib.parseUtil;
 
 /**
@@ -12,10 +14,21 @@ import szz.com.baselib.parseUtil;
 
 public class GoldenHunterMonster extends BaseRole {
 
+
+    public static final String[] MonsterHeader = new String[]{
+            "序号",
+            "猎物",
+            "总赏金",
+            "等级",
+            "击杀者",
+            "剩余生命",
+            "进度"
+    };
     public long maxHp;
     public int reward;
     public int level;
     public int index;
+    public String killer;
     public 天火神兽Ⅱ 天火神兽Ⅱ;//187.5	262.5	150	187.5
     public 耀金神兽Ⅱ 耀金神兽Ⅱ;//187.5	187.5	150	262.5
     public 巨木神兽Ⅱ 巨木神兽Ⅱ;//225	187.5	131.25	243.75
@@ -47,19 +60,30 @@ public class GoldenHunterMonster extends BaseRole {
         double at = parseUtil.str2Double(values[3].trim());
         double de = parseUtil.str2Double(values[4].trim());
         double al = parseUtil.str2Double(values[5].trim());
-        String killer = values[7].trim();//击杀者
+        String killer = values[6].trim();//击杀者
+        String state = values[7].trim();//击杀者
         long hp = parseUtil.str2Long(values[8].trim());//当前血量
         long hpMax = parseUtil.str2Long(values[9].trim());//满血量
         int reward = parseUtil.str2Int(values[10].trim());
-        return new GoldenHunterMonster(name, index, level, hp, hpMax, hpPer, at, de, al, reward);
+        GoldenHunterMonster monster = new GoldenHunterMonster(name, index, level, hp, hpMax, hpPer, at, de, al, reward);
+        monster.killer = killer;
+        return monster;
     }
 
     @Override
     public String toString() {
         return "怪物" + index + "{" + "名称：" + name +
 //                " 等级：" + level + " 奖励：" + reward +
-                " 总血量：" + getHpStr() + " 剩余：" + (hp * 100 / maxHp) + "% 防御：" +
+                " 总血量：" + getHpStr() + " 剩余：" + getRemainHpPercent() + " 防御：" +
                 getDefStr() + "}";
+    }
+
+
+    DecimalFormat df = new DecimalFormat("######0.00");
+
+    @NonNull
+    public String getRemainHpPercent() {
+        return df.format(hp * 100 / maxHp) + "%";
     }
 
     @NonNull
@@ -107,11 +131,11 @@ public class GoldenHunterMonster extends BaseRole {
             default:
                 unit = count + " 个零";
         }
-        return def  + unit;
+        return def + unit;
     }
 
     @NonNull
-    private String getHpStr() {
+    public String getHpStr() {
 
         long hp = maxHp;
         int count = 0;
@@ -157,5 +181,13 @@ public class GoldenHunterMonster extends BaseRole {
         }
 
         return hp + unit;
+    }
+
+    public String getChallengeTips() {
+        if (hp > 0) {
+            return String.format("即将挑战 总血量 %1$s 剩余 %2$s 进度，防御 %3$s 的 %4$s ,是否继续？",getHpStr(),getRemainHpPercent(),getDefStr(),name);
+        } else {
+            return String.format("防御 %1$s 的 %2$s 已被 %3$s 杀死！",getDefStr(),name,killer);
+        }
     }
 }

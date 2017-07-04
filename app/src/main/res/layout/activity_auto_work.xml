@@ -101,12 +101,44 @@
             android:text="超黑"/>
 
         <Button
-            android:id="@+id/btnQuanDi"
+            android:id="@+id/btnBuyXianZi"
             android:layout_toRightOf="@id/btnBlackHuoLi"
             android:layout_below="@id/btnChuangGuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="买仙子"/>
+
+        <Button
+            android:id="@+id/btnReadZaHuo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnReadHunterMonster"
+            android:text="读取杂货"/>
+
+        <Button
+            android:id="@+id/btnResetZaHuo"
+            android:layout_toRightOf="@+id/btnReadZaHuo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnReadHunterMonster"
+            android:text="重置杂货"/>
+
+        <Button
+            android:id="@+id/btnBuyZaHuo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="购买杂货"
+            android:layout_alignBaseline="@+id/btnResetZaHuo"
+            android:layout_alignBottom="@+id/btnResetZaHuo"
+            android:layout_toEndOf="@+id/btnResetZaHuo"/>
+
+        <Button
+            android:id="@+id/yuliu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="预留"
+            android:layout_below="@+id/btnBuyXianZi"
+            android:layout_toEndOf="@+id/btnBlackHuoLi"/>
 
     </RelativeLayout>
 

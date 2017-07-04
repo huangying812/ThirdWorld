@@ -19,13 +19,21 @@ import com.thirdworld.views.ConnectionIndicatorView;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import szz.com.baselib.MonsterShowView;
+import szz.com.baselib.TabletView;
+import szz.com.baselib.ZaHuoShowView;
 import szz.com.baselib.application.SpUtils;
 import szz.com.baselib.entity.ChuangGuanProf;
 import szz.com.baselib.entity.events.ConnectState;
 import szz.com.baselib.entity.events.GetServerPack;
 import szz.com.baselib.entity.events.LogStr;
+import szz.com.baselib.entity.events.MonsterRsp;
+import szz.com.baselib.entity.events.ZaHuoItemRsp;
 import szz.com.baselib.singleton.ConnectManager;
 import szz.com.thirdworld.R;
+
+import static szz.com.baselib.entity.GoldenHunterMonster.MonsterHeader;
+import static szz.com.baselib.entity.ZaHuoItem.ZaHuoItemHeader;
 
 public class AutoWorkActivity extends BaseActivity implements View.OnClickListener {
 
@@ -62,7 +70,11 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.btnReadHunterMonster).setOnClickListener(this);
         findViewById(R.id.btnChallengeHunterMonster).setOnClickListener(this);
         findViewById(R.id.btnZanZhuBuy).setOnClickListener(this);
-        findViewById(R.id.btnQuanDi).setOnClickListener(this);
+        findViewById(R.id.btnBuyXianZi).setOnClickListener(this);
+        findViewById(R.id.btnReadZaHuo).setOnClickListener(this);
+        findViewById(R.id.btnResetZaHuo).setOnClickListener(this);
+        findViewById(R.id.btnBuyZaHuo).setOnClickListener(this);
+        findViewById(R.id.yuliu).setOnClickListener(this);
         btnAuto.setOnClickListener(this);
         btnBlackHuoLi.setOnClickListener(this);
         btnChuangGuan.setOnClickListener(this);
@@ -86,18 +98,30 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
 
                 ConnectManager.getInstance().postConnectState();
             }
-        },1000);
+        }, 1000);
     }
 
     private int loginCounts;
+
     @Override
     public void onClick(View v) {
         final ConnectManager manager = ConnectManager.getInstance();
         switch (v.getId()) {
+            case R.id.btnReadZaHuo:
+                manager.readZaHuo();
+                break;
+            case R.id.btnResetZaHuo:
+                manager.resetZaHuo();
+                break;
+            case R.id.btnBuyZaHuo:
+                manager.buyZaHuo(3);
+                break;
+            case R.id.yuliu:
+                break;
             case R.id.btnLogin:
                 manager.login(loginCounts++ % 2 + 1);
                 break;
-            case R.id.btnQuanDi:
+            case R.id.btnBuyXianZi:
                 manager.autoBuyXianZi();
                 break;
             case R.id.btnAuto:
@@ -138,7 +162,7 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
                 popupMenu.show();
                 break;
             case R.id.btnBlackHuoLi:
-                View buyHuoli = View.inflate(this,R.layout.view_common_times_input,null);
+                View buyHuoli = View.inflate(this, R.layout.view_common_times_input, null);
                 final TextInputEditText edtAmount = (TextInputEditText) buyHuoli.findViewById(R.id.edtAmount);
                 showDialog("购买活力", "超黑方式购买，基础价格50活力100固定，每蜕变一次增加10。", buyHuoli, new DialogInterface.OnClickListener() {
                     @Override
@@ -165,7 +189,7 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
 
                 break;
             case R.id.btnChallengeHunterMonster:
-                View challengeHunterMoster = View.inflate(this,R.layout.view_common_times_input,null);
+                View challengeHunterMoster = View.inflate(this, R.layout.view_common_times_input, null);
                 final TextInputEditText edtIndex = (TextInputEditText) challengeHunterMoster.findViewById(R.id.edtAmount);
                 edtIndex.setText(goldHunterIndex + "");
                 showDialog("赏金猎人", "挑战关数，1-12。", challengeHunterMoster, new DialogInterface.OnClickListener() {
@@ -204,14 +228,14 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
     }
 
     public void chuangGuanClicked(final ConnectManager manager) {
-        View chuanGuan = View.inflate(this, R.layout.view_challenge_guan,null);
+        View chuanGuan = View.inflate(this, R.layout.view_challenge_guan, null);
         final TextView tvType = (TextView) chuanGuan.findViewById(R.id.tvType);
         final TextInputEditText edtIndex = (TextInputEditText) chuanGuan.findViewById(R.id.edtIndex);
         final TextInputEditText edtTimes = (TextInputEditText) chuanGuan.findViewById(R.id.edtTimes);
         final ChuangGuanProf prof = SpUtils.getLastChuangGuanProf();
         tvType.setText(prof.type);
-        edtIndex.setText(prof.index+"");
-        edtTimes.setText(prof.times+"");
+        edtIndex.setText(prof.index + "");
+        edtTimes.setText(prof.times + "");
         tvType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -252,7 +276,7 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
                 int index = getContentInt(edtIndex);
                 int times = getContentInt(edtTimes);
                 if (index * times > 0) {
-                    manager.challengeGuan(type,times,index);
+                    manager.challengeGuan(type, times, index);
                 }
                 switch (type) {
                     case "普通":
@@ -274,7 +298,7 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
     }
 
     public void baseTaskClicked(final ConnectManager manager) {
-        View baseTask = View.inflate(this, R.layout.view_challenge_base_task,null);
+        View baseTask = View.inflate(this, R.layout.view_challenge_base_task, null);
         final TextView tvType = (TextView) baseTask.findViewById(R.id.tvType);
         final String type = SpUtils.getLastBaseTaskType();
         final TextView tvLevel = (TextView) baseTask.findViewById(R.id.tvLevel);
@@ -347,8 +371,9 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
     }
 
     boolean isConnected;
+
     @Subscribe
-    public void changeConnectState(ConnectState state){
+    public void changeConnectState(ConnectState state) {
 
         boolean newState = state.isConnected;
         if (this.isConnected ^ newState) {
@@ -368,6 +393,18 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
         /*if (event != null) {
             sendMsg(WHAT_SERVER_RESP, event.msg + "\n");
         }*/
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void update(ZaHuoItemRsp event) {
+        TabletView view = new ZaHuoShowView(this, event.zaHuoItems, ZaHuoItemHeader);
+        showDialog("杂货铺", "", view, null);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void update(MonsterRsp event) {
+        TabletView view = new MonsterShowView(this, event.monsterItems, MonsterHeader);
+        showDialog("赏金猎杀", "", view, null);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

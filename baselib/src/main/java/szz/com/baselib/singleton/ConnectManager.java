@@ -8,6 +8,8 @@ import android.util.Log;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -17,9 +19,12 @@ import szz.com.baselib.application.ContextHolder;
 import szz.com.baselib.application.SpUtils;
 import szz.com.baselib.entity.GoldenHunterMonster;
 import szz.com.baselib.entity.UserInfo;
+import szz.com.baselib.entity.ZaHuoItem;
 import szz.com.baselib.entity.events.GetServerPack;
 import szz.com.baselib.entity.events.LogStr;
 import szz.com.baselib.entity.events.LoginSuccess;
+import szz.com.baselib.entity.events.MonsterRsp;
+import szz.com.baselib.entity.events.ZaHuoItemRsp;
 import szz.com.baselib.rest.QuanDi;
 import szz.com.baselib.rest.ServerSocket;
 
@@ -327,6 +332,56 @@ public class ConnectManager {
         }
     }
 
+    public void readZaHuo(){
+        setCmd(R.string.read_zahuo);
+    }
+
+    private void onReadZaHuoRsp(String[] split) {
+        if (split.length >= 2) {
+            //盟军黑店随机杂货铺读取成功〓※增加活力 50 100 5000 10，兽魂_玄武 20 1000 100000 60，碎片_星魂_巨蟹 10 100 5000 10，潜能_神行+5 5 500 25000 50，潜能_血牛+4 5 300 15000 30，碎片_星魂_射手 3 100 5000 10，※增加活力 50 100 5000 10，碎片_星魂_双子 10 100 5000 10，碎片_星魂_天蝎 5 100 5000 10，兽魂_梼杌 20 500 50000 40，碎片_星魂_水瓶 3 100 5000 10，兽魂_青龙 20 1000 100000 60，宝箱_+2 3 50 2500 5，兽魂_混沌 20 500 50000 40，兽魂_白虎 20 1000 100000 60〓101000110000001〓7
+            // 663 前6个是花费固定资金，中6个是花费元宝，最后3个是花费赞助点
+            ArrayList<ZaHuoItem> zaHuoItems = new ArrayList<>();
+            String[] items = split[1].split("，");
+            String[] s = split[2].split("");
+            String[] state = Arrays.copyOfRange(s, s.length - 15, s.length);
+            Log.e(TAG, "杂货铺读取: " + state.length + Arrays.deepToString(state));
+            int resetTimes = str2Int(split[3]);
+            for (int i = 0; i < 6; i++) {
+                ZaHuoItem item = ZaHuoItem.parse(i + 1, items[i], Integer.valueOf(state[i]), MoneyType.guDingZiJin);
+                item.buyIfWorth();
+                zaHuoItems.add(item);
+            }
+            for (int i = 6; i < 12; i++) {
+                ZaHuoItem item = ZaHuoItem.parse(i + 1, items[i], Integer.valueOf(state[i]), MoneyType.yuanBao);
+                item.buyIfWorth();
+                zaHuoItems.add(item);
+            }
+            for (int i = 12; i < 15; i++) {
+                ZaHuoItem item = ZaHuoItem.parse(i + 1, items[i], Integer.valueOf(state[i]), MoneyType.zanZhuDian);
+                item.buyIfWorth();
+                zaHuoItems.add(item);
+            }
+            if (!zaHuoItems.isEmpty()) {
+                EventUtil.post(new ZaHuoItemRsp(zaHuoItems));
+            }
+        }
+    }
+
+    public void resetZaHuo(){
+        setCmd(R.string.reset_zahuo);
+    }
+
+    public void buyZaHuo(int index){
+        setCmd(R.string.buy_zahuo,index);
+    }
+
+    private void onBuyZaHuoRsp(String[] split) {
+//盟军黑店随机杂货铺已经购买完成〓101000111000001〓1219〓3418〓3605〓3184〓8809〓165〓4〓0〓28〓3815〓442〓2201〓4447.989〓227435〓碎片_星魂_天蝎
+//                                  购买状态    | -------------元神+1到+9----------------|  宝箱  火淬 赞助点  固定     元宝     购买物品
+        if (split.length >= 12) {
+        }
+    }
+
     /**
      * guanStr 示例参数： 1-1     1-2     2-5     等
      * <p>
@@ -536,10 +591,15 @@ public class ConnectManager {
                     //262.5	225	93.75	206.25
                     //225	187.5	150	225
                     String[] monsters = split[1].split("\r\n");
+                    ArrayList<GoldenHunterMonster> monsterItems = new ArrayList<>();
                     int count = 1;
                     for (String monster : monsters) {
                         GoldenHunterMonster hunterMonster = GoldenHunterMonster.parse(count++, monster);
                         postMsg(hunterMonster.toString());
+                        monsterItems.add(hunterMonster);
+                    }
+                    if (!monsterItems.isEmpty()) {
+                        EventUtil.post(new MonsterRsp(monsterItems));
                     }
                 }
                 break;
@@ -576,6 +636,18 @@ public class ConnectManager {
                 break;
             case "帮派个人闯关结束":
                 onChallengeGuanRsp(split);
+                break;
+            case "盟军杂货铺重置":
+                if (split.length >= 2) {
+                    //
+                    readZaHuo();
+                }
+                break;
+            case "盟军黑店随机杂货铺读取成功":
+                onReadZaHuoRsp(split);
+                break;
+            case "盟军黑店随机杂货铺已经购买完成":
+                onBuyZaHuoRsp(split);
                 break;
             case "":
                 if (split.length >= 2) {
