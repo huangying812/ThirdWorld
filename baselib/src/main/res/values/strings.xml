@@ -144,6 +144,11 @@
     <string name="heart_beat">心跳开始\t183.60.204.64\t183.60.204.64</string>
     <string name="ph_buy_huoli_suc">%2$s 购买活力成功!%2$s还剩:%3$d，当前活力点数：%4$d 购买次数还剩%1$d次 </string>
     <string name="ph_challenge_guan_suc">闯第 %2$s 关 %1$s难度共 %3$s 次 %4$s 了！获得 %5$s 星评分，还剩 %6$s 活力！</string>
+    <string name="zanzhu_qurey_xianzi">赞助系统房屋查询存宠明细〓%1$s〓%2$s〓%3$s〓%4$s\t183.60.204.64\t183.60.204.64</string>
+    <string name="zanzhu_qurey_xianzi_rsp">赞助查询房屋存宠NPC明细〓绿衣仙子 122964，绿衣仙子 122960，绿衣仙子 122962，绿衣仙子 122965，绿衣仙子 122966，绿衣仙子 122961，绿衣仙子 122963，</string>
+    <string name="zanzhu_buy_xianzi">赞助系统房屋新增绿衣仙子〓%1$s〓%2$s〓%3$s〓%4$s〓%5$d\t183.60.204.64\t183.60.204.64</string>
+    <string name="zanzhu_buy_xianzi_rsp">赞助查询房屋存宠NPC明细〓绿衣仙子 123379，绿衣仙子 122964，绿衣仙子 122960，绿衣仙子 122962，绿衣仙子 122965，绿衣仙子 122966，绿衣仙子 122961，绿衣仙子 122963，〓2197</string>
+
     <string name="ip">183.60.204.64</string>
     <string name="port">9103</string>
     <string name="qiang">抢活力</string>

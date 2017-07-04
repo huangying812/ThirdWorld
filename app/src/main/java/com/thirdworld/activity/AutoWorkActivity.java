@@ -14,12 +14,12 @@ import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
-import szz.com.baselib.application.SpUtils;
 import com.thirdworld.views.ConnectionIndicatorView;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import szz.com.baselib.application.SpUtils;
 import szz.com.baselib.entity.ChuangGuanProf;
 import szz.com.baselib.entity.events.ConnectState;
 import szz.com.baselib.entity.events.GetServerPack;
@@ -62,7 +62,7 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.btnReadHunterMonster).setOnClickListener(this);
         findViewById(R.id.btnChallengeHunterMonster).setOnClickListener(this);
         findViewById(R.id.btnZanZhuBuy).setOnClickListener(this);
-//        findViewById(R.id.btnQuanDi).setOnClickListener(this);
+        findViewById(R.id.btnQuanDi).setOnClickListener(this);
         btnAuto.setOnClickListener(this);
         btnBlackHuoLi.setOnClickListener(this);
         btnChuangGuan.setOnClickListener(this);
@@ -97,9 +97,9 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
             case R.id.btnLogin:
                 manager.login(loginCounts++ % 2 + 1);
                 break;
-            /*case R.id.btnQuanDi:
-                manager.startQuanDi();
-                break;*/
+            case R.id.btnQuanDi:
+                manager.autoBuyXianZi();
+                break;
             case R.id.btnAuto:
                 manager.autoStart();
                 break;

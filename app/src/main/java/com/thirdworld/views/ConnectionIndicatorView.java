@@ -4,11 +4,10 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
-import com.thirdworld.EventUtil;
-import com.thirdworld.entity.events.ConnectState;
-
 import org.greenrobot.eventbus.Subscribe;
 
+import szz.com.baselib.EventUtil;
+import szz.com.baselib.entity.events.ConnectState;
 import szz.com.thirdworld.R;
 
 /**

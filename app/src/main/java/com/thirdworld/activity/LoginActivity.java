@@ -28,17 +28,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.thirdworld.EventUtil;
-import szz.com.baselib.application.SpUtils;
-import szz.com.baselib.singleton.ConnectManager;
-
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import szz.com.baselib.EventUtil;
+import szz.com.baselib.application.SpUtils;
 import szz.com.baselib.entity.events.GetServerPack;
 import szz.com.baselib.entity.events.LoginSuccess;
+import szz.com.baselib.singleton.ConnectManager;
 import szz.com.thirdworld.R;
 
 import static android.Manifest.permission.READ_CONTACTS;

@@ -1,11 +1,12 @@
 package szz.com.thirdworld;
 
-import com.thirdworld.entity.UserInfo;
 
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import szz.com.baselib.entity.UserInfo;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -17,6 +18,18 @@ public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
         ArrayList<String> strs = new ArrayList<>();
+        strs.add("0");
+        strs.add("0");
+        strs.add("0");
+        strs.add("0");
+        strs.add("0");
+        strs.add("0");
+        strs.add("0");
+        strs.add("0");
+        strs.add("0");
+        strs.add("0");
+        strs.add("0");
+        strs.add("0");
         strs.add("0");
         strs.add("0");
         strs.add("0");

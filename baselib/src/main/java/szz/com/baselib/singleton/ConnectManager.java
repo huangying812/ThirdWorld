@@ -5,9 +5,6 @@ import android.support.annotation.StringRes;
 import android.text.TextUtils;
 import android.util.Log;
 
-import szz.com.baselib.application.ContextHolder;
-import szz.com.baselib.application.SpUtils;
-
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -16,6 +13,8 @@ import java.util.concurrent.Executors;
 
 import szz.com.baselib.EventUtil;
 import szz.com.baselib.R;
+import szz.com.baselib.application.ContextHolder;
+import szz.com.baselib.application.SpUtils;
 import szz.com.baselib.entity.GoldenHunterMonster;
 import szz.com.baselib.entity.UserInfo;
 import szz.com.baselib.entity.events.GetServerPack;
@@ -416,6 +415,17 @@ public class ConnectManager {
     }
 
     /**
+     *  赞助2014获取〓hy814〓123	183.60.204.64	183.60.204.64
+     *  赞获〓hy814〓5※有时很忙〓4021447〓52379〓32376〓107421〓27132〓123304〓6000〓2198〓1〓232435〓928651 550874 550874 550874 550874〓3815〓2017-05-20〓999〓57484〓2017-05-20〓0〓2017-05-20〓111111000000000〓999〓2211〓2017-5-20〓2008〓4〓27〓0〓0
+     *  赞助系统读取房产信息〓hy814〓123	183.60.204.64	183.60.204.64
+     *  赞助系统读取房产信息返回〓1000007 56 37
+     *  赞助系统读取房屋NPC〓hy814〓123〓1000007	183.60.204.64	183.60.204.64
+     *  赞助系统读取房屋NPC〓储物箱 43 36 1000034 201；储物箱 44 36 1000035 201；储物箱 45 36 1000036 201；储物箱 43 37 1000037 201；储物箱 44 37 1000038 201；储物箱 45 37 1000039 201；仙子屋 43 39 1000041 202；美人屋 43 40 1000042 202
+     *  赞助系统房屋查询存宠明细〓hy814〓123〓1000007〓1000041	183.60.204.64	183.60.204.64
+     *  赞助查询房屋存宠NPC明细〓绿衣仙子 122964，绿衣仙子 122960，绿衣仙子 122962，绿衣仙子 122965，绿衣仙子 122966，绿衣仙子 122961，绿衣仙子 122963，
+     *  赞助系统房屋新增绿衣仙子〓hy814〓123〓1000007〓1000041〓1	183.60.204.64	183.60.204.64
+     *  赞助查询房屋存宠NPC明细〓绿衣仙子 123379，绿衣仙子 122964，绿衣仙子 122960，绿衣仙子 122962，绿衣仙子 122965，绿衣仙子 122966，绿衣仙子 122961，绿衣仙子 122963，〓2197
+     *
      *  摆摊使用特殊〓hy811〓123〓100018203	183.60.204.64	183.60.204.64
      *  摆摊使用特殊〓hy811〓123〓100018208	183.60.204.64	183.60.204.64
      *  摆摊使用特殊〓hy811〓123〓100018209	183.60.204.64	183.60.204.64
@@ -433,6 +443,36 @@ public class ConnectManager {
         int gap;
         outer:
         switch (split[0]) {
+            case "赞助查询房屋存宠NPC明细":
+                if (split.length == 2) {
+                    //赞助查询房屋存宠NPC明细〓绿衣仙子 122964，绿衣仙子 122960，绿衣仙子 122962，绿衣仙子 122965，绿衣仙子 122966，绿衣仙子 122961，绿衣仙子 122963，
+                    int counts = 0;
+                    String[] xianZis = split[1].split("，");
+                    for (String xianZi : xianZis) {
+                        if (xianZi.contains("绿衣仙子")) {
+                            counts++;
+                        }
+                    }
+                    // 赞助系统房屋新增绿衣仙子〓hy814〓123〓1000007〓1000041〓1	183.60.204.64	183.60.204.64
+                    postMsg(String.format("房子（%1$s）里NPC（%2$s）中的仙子数量是%3$d", houseId, npcId, counts));
+                    if (counts < 8) {
+                        int i = 8 - counts;
+                        setCmd(R.string.zanzhu_buy_xianzi, houseId, npcId, i);
+                   } else {
+                        postMsg("无需购买仙子");
+                    }
+                } else if (split.length >= 3) {
+                    //赞助查询房屋存宠NPC明细〓绿衣仙子 123379，绿衣仙子 122964，绿衣仙子 122960，绿衣仙子 122962，绿衣仙子 122965，绿衣仙子 122966，绿衣仙子 122961，绿衣仙子 122963，〓2197
+                    int counts = 0;
+                    String[] xianZis = split[1].split("，");
+                    for (String xianZi : xianZis) {
+                        if (xianZi.contains("绿衣仙子")) {
+                            counts++;
+                        }
+                    }
+                    postMsg(String.format("购买完成，房子（%1$s）里NPC（%2$s）中的仙子数量是%3$d，赞助点还剩%4$s", houseId, npcId, counts,split[2]));
+                }
+                break;
             case "帮派读取无尽关卡返回":
                 onReadWuJinRsp(split);
                 break;
@@ -943,6 +983,13 @@ public class ConnectManager {
     }
 
     private boolean auto;
+
+    public static final int houseId = 1000007;
+    public static final int npcId = 1000041;
+    public void autoBuyXianZi() {
+    // 赞助系统房屋查询存宠明细〓hy814〓123〓1000007〓1000041	183.60.204.64	183.60.204.64
+        setCmd(R.string.zanzhu_qurey_xianzi,houseId,npcId);
+    }
 
     public void autoStart() {
         auto = true;

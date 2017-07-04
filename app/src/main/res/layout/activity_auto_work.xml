@@ -100,13 +100,13 @@
             android:layout_height="wrap_content"
             android:text="超黑"/>
 
-        <!--<Button
+        <Button
             android:id="@+id/btnQuanDi"
             android:layout_toRightOf="@id/btnBlackHuoLi"
             android:layout_below="@id/btnChuangGuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="圈地"/>-->
+            android:text="买仙子"/>
 
     </RelativeLayout>
 
