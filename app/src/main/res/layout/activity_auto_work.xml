@@ -85,6 +85,7 @@
             android:text="读取猎物"/>
 
         <Button
+            android:visibility="gone"
             android:id="@+id/btnChallengeHunterMonster"
             android:layout_toRightOf="@+id/btnReadHunterMonster"
             android:layout_width="wrap_content"
@@ -124,6 +125,7 @@
             android:text="重置杂货"/>
 
         <Button
+            android:visibility="gone"
             android:id="@+id/btnBuyZaHuo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -133,6 +135,7 @@
             android:layout_toEndOf="@+id/btnResetZaHuo"/>
 
         <Button
+            android:visibility="gone"
             android:id="@+id/yuliu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

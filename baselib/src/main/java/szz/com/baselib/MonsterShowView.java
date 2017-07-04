@@ -78,7 +78,7 @@ public class MonsterShowView extends TabletView<GoldenHunterMonster> {
                         .setPositiveButton("挑战", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                ConnectManager.getInstance().buyZaHuo(monster.index);
+                                ConnectManager.getInstance().challegeHunterMoster(monster.index);
                             }
                         }).show();
             } else {

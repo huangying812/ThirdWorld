@@ -61,7 +61,7 @@ public class GoldenHunterMonster extends BaseRole {
         double de = parseUtil.str2Double(values[4].trim());
         double al = parseUtil.str2Double(values[5].trim());
         String killer = values[6].trim();//击杀者
-        String state = values[7].trim();//击杀者
+        String state = values[7].trim();//是否存活
         long hp = parseUtil.str2Long(values[8].trim());//当前血量
         long hpMax = parseUtil.str2Long(values[9].trim());//满血量
         int reward = parseUtil.str2Int(values[10].trim());
@@ -79,7 +79,7 @@ public class GoldenHunterMonster extends BaseRole {
     }
 
 
-    DecimalFormat df = new DecimalFormat("######0.00");
+    DecimalFormat df = new DecimalFormat("######0.0");
 
     @NonNull
     public String getRemainHpPercent() {
