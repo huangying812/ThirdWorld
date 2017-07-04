@@ -5,7 +5,7 @@
  * Created with Studio
  */
 
-package com.thirdworld.application;
+package szz.com.baselib.application;
 
 import android.app.Activity;
 import android.app.Application;

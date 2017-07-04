@@ -1,6 +1,8 @@
 package szz.com.baselib.rest;
 
 
+import android.support.annotation.NonNull;
+
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -92,10 +94,27 @@ public class QuanDi implements Runnable {
     private Date mTimeCur;
     private int mTimes;
     private int mMaxBuild;
+    private boolean mayHasZhiDing = true;
 
     public static void main(String... args) {
 //        log(getDate("2017-06-26 19:28:09").toString());
+        大号();
+//        hy812();
+//        hy815();
+    }
+
+    public static void hy812() {
         QuanDi quanDi = new QuanDi("hy812", "123");
+        new Thread(quanDi).start();
+    }
+
+    public static void hy815() {
+        QuanDi quanDi = new QuanDi("hy815", "123");
+        new Thread(quanDi).start();
+    }
+
+    public static void 大号() {
+        QuanDi quanDi = new QuanDi("hy814", "123");
         new Thread(quanDi).start();
     }
 
@@ -131,9 +150,9 @@ public class QuanDi implements Runnable {
     }*/
 
     /**
-     * @brief 构造函数
      * @param account
      * @param pwd
+     * @brief 构造函数
      */
     public QuanDi(String account, String pwd) {
 
@@ -226,7 +245,8 @@ public class QuanDi implements Runnable {
             log("服务器返回：" + msg.substring(0, Math.min(msg.length(), 100)));
             if (msg.startsWith("签到〓")) {
                 setConnectState(true);
-                setCmd(cmdReadP);
+//                setCmd(cmdReadP);
+                zhiDing(4);
             } else {
                 processResponse(msg);
                 isSending = false;
@@ -272,11 +292,11 @@ public class QuanDi implements Runnable {
                 case "盟军圈地读最新返回":
 //盟军圈地读最新返回〓战神台 80 76 3 23 3 25 2；铜人殿 20 0 0 0 0 0 0；镜雪原 30 0 0 0 0 0 0；弄梅洞窟 80 12 3 15 3 18 1；北海龙宫 70 0 0 0 0 0 0；海底皇宫 70 0 0 0 0 0 0；落雁谷 20 0 0 0 0 0 0；吊烤地狱 50 0 0 0 0 0 0；最后的房间 70 0 0 0 0 0 0；衡天台 90 91 1 158 1 5 2；巨菇洞 20 0 0 0 0 0 0；西天界 90 37 1 38 1 10 2；绿洲东郊 20 0 0 0 0 0 0；仙界天网 90 3 3 21 1 198 2；宁静海 70 0 0 0 0 0 0；万劫谷 80 157 2 69 4 158 2；剥皮地狱 50 0 0 0 0 0 0；名剑山庄正院 60 0 0 0 0 0 0；炮烙地狱 50 0 0 0 0 0 0；紫阳门 90 91 3 14 2 38 2；太和殿 30 0 0 0 0 0 0；守望林场 40 0 0 0 0 0 0；小小房间 70 0 0 0 0 0 0；冰清桥 30 0 0 0 0 0 0；随机事件 9999999 0 0 0 0 0 0；铡头地狱 50 0 0 0 0 0 0；赏月谷 20 0 0 0 0 0 0；飞升门 90 23 1 3 3 49 2；沉信当铺 70 0 0 0 0 0 0；闲情园 10 0 0 0 0 0 0；逐影洞窟 80 16 1 115 2 40 2；暴走地狱 50 0 0 0 0 0 0；雪融谷 30 0 0 0 0 0 0；鸟鸣谷 30 0 0 0 0 0 0；铁索桥 50 0 0 0 0 0 0；迷幻洞窟 80 12 2 21 1 9 2；污秽地狱 50 0 0 0 0 0 0；神将壁 80 16 2 40 1 157 3；松竹林 10 0 0 0 0 0 0；皇城甬道 80 74 2 5 2 18 1；空灵园 90 10 4 22 2 49 2；流沙原 20 0 0 0 0 0 0；枯井原 10 0 0 0 0 0 0；邂逅洞窟 80 198 4 9 2 76 3；灵丹室 90 105 3 14 1 15 3；碧水丹心谷 40 0 0 0 0 0 0；磨骨地狱 50 0 0 0 0 0 0；羁马谷 20 0 0 0 0 0 0；双印谷 40 0 0 0 0 0 0；深深海 70 0 0 0 0 0 0；旋割地狱 50 0 0 0 0 0 0；千佛殿 60 0 0 0 0 0 0；冰封地狱 50 0 0 0 0 0 0；独木原 30 0 0 0 0 0 0；观日桥 10 0 0 0 0 0 0；梦佛窟 20 0 0 0 0 0 0；吓死人洞窟1 10 0 0 0 0 0 0；逆之往事 40 0 0 0 0 0 0；银罐谷 20 0 0 0 0 0 0；名剑山庄前厅 60 0 0 0 0 0 0；浮影水城外郊 10 0 0 0 0 0 0；南海龙宫 70 0 0 0 0 0 0；宁静客栈 70 0 0 0 0 0 0；天灯地狱 50 0 0 0 0 0 0；仙临台 90 22 1 114 2 6 1；酒鬼冢 20 0 0 0 0 0 0；执手洞窟 80 4 1 105 1 25 2；石笋洞窟 80 69 2 50 1 0 0；怨灵洞口 20 0 0 0 0 0 0；炉烧地狱 50 0 0 0 0 0 0；古城遗址 20 0 0 0 0 0 0；西码头 10 0 0 0 0 0 0；猎人洞窟 10 0 0 0 0 0 0；随机事件 9999999 0 0 0 0 0 0；紫禁城 30 0 0 0 0 0 0；油锅地狱 50 0 0 0 0 0 0；圣泉台 90 115 3 163 2 0 0；黄泥岗 30 0 0 0 0 0 0；御风台 90 50 1 0 0 0 0；大殿 30 0 0 0 0 0 0；三清殿 60 0 0 0 0 0 0；怡心谷 80 4 2 74 1 114 3；守候洞窟 80 163 2 0 0 0 0；华山顶 60 0 0 0 0 0 0；很窄的过道 70 0 0 0 0 0 0；明月桥 10 0 0 0 0 0 0；东码头 10 0 0 0 0 0 0；盘龙洞窟 80 0 0 0 0 0 0；晚枫林 40 0 0 0 0 0 0；遗恨原 20 0 0 0 0 0 0；凰之谷 40 0 0 0 0 0 0；翔云幻城 90 6 1 54 3 0 0；钉板地狱 50 0 0 0 0 0 0；通仙之境 90 37 2 19 1 54 1；寒月台 10 0 0 0 0 0 0；武当练功房 60 0 0 0 0 0 0；净沙原 20 0 0 0 0 0 0；四桥原 10 0 0 0 0 0 0；紫宵宫 60 0 0 0 0 0 0；地焰洞 40 0 0 0 0 0 0；西海龙宫 70 0 0 0 0 0 0；青之绿洲 20 0 0 0 0 0 0；碧水洞窟 80 0 0 0 0 0 0；蓬莱仙境 90 51 1 0 0 0 0；深蓝海底 70 0 0 0 0 0 0；华山亭 60 0 0 0 0 0 0；斧青谷 30 0 0 0 0 0 0；仙客厅 90 0 0 0 0 0 0；春水桥 30 0 0 0 0 0 0；华山瀑布 60 0 0 0 0 0 0；金钟洞窟 80 0 0 0 0 0 0；古铜洞窟 80 0 0 0 0 0 0；雪狼湖 70 0 0 0 0 0 0；树顶 10 0 0 0 0 0 0；石壁洞口 10 0 0 0 0 0 0；逆之轮回 40 0 0 0 0 0 0；青灵洞 20 0 0 0 0 0 0；紫苔洞窟 80 51 1 0 0 0 0；名剑山庄中院 60 0 0 0 0 0 0；观日桥头 10 0 0 0 0 0 0；徘徊林 40 0 0 0 0 0 0；少林寺前院 60 0 0 0 0 0 0；随机事件 9999999 0 0 0 0 0 0；深蓝海城 70 0 0 0 0 0 0；青风原 10 0 0 0 0 0 0；东海龙宫 70 0 0 0 0 0 0；雪狼崖 70 0 0 0 0 0 0；百草池 40 0 0 0 0 0 0；榕盘谷 40 0 0 0 0 0 0；华山脚 60 0 0 0 0 0 0；敕勒川 30 0 0 0 0 0 0；不悔洞窟 80 0 0 0 0 0 0；沙盗洞口 20 0 0 0 0 0 0；坠泪岗 10 0 0 0 0 0 0；飘渺仙境 90 0 0 0 0 0 0；一点点杂货 70 0 0 0 0 0 0；松雪野 30 0 0 0 0 0 0；名剑山庄书房 60 0 0 0 0 0 0；炊烟谷 30 0 0 0 0 0 0；情人谷 20 0 0 0 0 0 0；阳光渔栈 40 0 0 0 0 0 0；窄窄的过道 70 0 0 0 0 0 0；藏经阁 60 0 0 0 0 0 0；伤心洞窟 80 19 2 0 0 0 0；剑池谷 10 0 0 0 0 0 0；天王殿 60 0 0 0 0 0 0；金轮谷 20 0 0 0 0 0 0
                     processMapData(split[1]);
-                    if (mCurMapIndex > 0) {
+                    if (mCurMapIndex > 0 && mCurMapZuobiao < 20000) {
                         map = mMaps.get(mCurMapIndex - 1);
                         log(map.toString());
-                        if (!map.BuildIfGood()) {
-                            zhiShaiZi();
+                        if ( !map.BuildIfGood()) {
+                            zhiShaiZi(map);
                         }
                     } else {
                         zhiShaiZi();
@@ -292,6 +312,11 @@ public class QuanDi implements Runnable {
 //盟军圈地建造升级返回〓20009〓920〓弄梅洞窟 80 4 1 0 0 0 0〓80
                     onBuildRsp(split[1]);
 
+                    break;
+                case "错误，指定投骰子需要在每周的2.4.6才有效！且每天仅有2次机会！！":
+//错误，指定投骰子需要在每周的2.4.6才有效！且每天仅有2次机会！！
+                    mayHasZhiDing = false;
+                    setCmd(cmdReadP);
                     break;
                 default:
                     new Thread(new Runnable() {
@@ -343,7 +368,7 @@ public class QuanDi implements Runnable {
         if (myHouses.size() < 7 && mCurMapZuobiao < 20000) {
             Map map2 = mMaps.get(mCurMapIndex - 1);
             if (!map2.BuildIfGood()) {
-                zhiShaiZi();
+                zhiShaiZi(map2);
             }
         } else {
             zhiShaiZi();
@@ -381,7 +406,7 @@ public class QuanDi implements Runnable {
                 + "-地皮编号：" + index + "-特殊事件的数值：" + un2
                 + "-特殊事件：" + event
         );
-        postMsg("圈地-掷骰子结果-点数："+ dianShu
+        postMsg("圈地-掷骰子结果-点数：" + dianShu
                 + "-机动力：" + mTimes
                 + "-路费：" + cost + "-资金：" + mZijin
                 + "-地皮：" + index + "-特殊事件：" + event + "-影响：" + un2);
@@ -389,7 +414,7 @@ public class QuanDi implements Runnable {
         map = mMaps.get(index - 1);
         log(map.toString());
         if (!map.BuildIfGood()) {
-            zhiShaiZi();
+            zhiShaiZi(map);
         }
     }
 
@@ -427,6 +452,24 @@ public class QuanDi implements Runnable {
             setCmd(cmdEnable);
         } else {
             sendCmd(cmdReadS);
+        }
+    }
+
+    private void zhiShaiZi(@NonNull Map map) {
+        if (mayHasZhiDing) {
+            int i = map.hasValueHouse(90);
+            if (i < 1) {
+//                i = map.hasValueHouse(80);
+                if (i < 1) {
+                    zhiShaiZi();
+                } else {
+                    zhiDing(i);
+                }
+            } else {
+                zhiDing(i);
+            }
+        } else {
+            zhiShaiZi();
         }
     }
 
@@ -629,6 +672,21 @@ public class QuanDi implements Runnable {
                 } else if (user3 == 0) {
                     return 1;
                 }
+            }
+            return 0;
+        }
+
+        public int hasValueHouse(int price) {
+            if (mMaps != null && !mMaps.isEmpty()) {
+                int index = zuobiao % 1000 - 1;
+                int length = Math.min(mMaps.size() - index, 10);
+                for (int i = 1; index < length; index++) {
+                    Map map = mMaps.get(index + i);
+                    if (map.price >= price && map.canBuild() && map.levelAllow()) {
+                        return i;
+                    }
+                }
+
             }
             return 0;
         }

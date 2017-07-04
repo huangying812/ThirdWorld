@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 
 import com.thirdworld.EventUtil;
+
+import szz.com.baselib.application.ContextHolder;
 import szz.com.baselib.singleton.ConnectManager;
 
 /**

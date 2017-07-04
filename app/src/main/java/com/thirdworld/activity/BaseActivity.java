@@ -12,12 +12,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.thirdworld.EventUtil;
-import com.thirdworld.application.ContextHolder;
-
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import szz.com.baselib.EventUtil;
+import szz.com.baselib.application.ContextHolder;
 import szz.com.baselib.entity.events.LoginSuccess;
 
 /**

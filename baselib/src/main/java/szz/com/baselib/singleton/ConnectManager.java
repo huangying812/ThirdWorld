@@ -5,8 +5,8 @@ import android.support.annotation.StringRes;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.thirdworld.application.ContextHolder;
-import com.thirdworld.application.SpUtils;
+import szz.com.baselib.application.ContextHolder;
+import szz.com.baselib.application.SpUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;

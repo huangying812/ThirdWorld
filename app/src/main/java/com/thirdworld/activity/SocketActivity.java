@@ -25,8 +25,8 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.thirdworld.application.ContextHolder;
-import com.thirdworld.application.SpUtils;
+import szz.com.baselib.application.ContextHolder;
+import szz.com.baselib.application.SpUtils;
 import szz.com.baselib.singleton.ConnectManager;
 
 import org.greenrobot.eventbus.Subscribe;

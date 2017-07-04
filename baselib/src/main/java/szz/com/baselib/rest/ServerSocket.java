@@ -3,7 +3,7 @@ package szz.com.baselib.rest;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.thirdworld.application.ContextHolder;
+import szz.com.baselib.application.ContextHolder;
 
 import java.io.Closeable;
 import java.io.IOException;

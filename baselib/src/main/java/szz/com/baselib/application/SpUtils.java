@@ -1,7 +1,7 @@
 /*************************************************************************
  * 2012-7-25   chenshiqiang    1.0    创建
  **************************************************************************/
-package com.thirdworld.application;
+package szz.com.baselib.application;
 
 
 import szz.com.baselib.entity.ChuangGuanProf;
