@@ -654,6 +654,37 @@ public class ConnectManager {
                     //
                 }
                 break;
+            case "赞获":
+                if (split.length >= 2) {
+                    //赞助2014获取〓hy815〓123	183.60.204.64	183.60.204.64
+                    //赞获〓hy815〓有时候很忙〓1731574〓7848〓0〓0〓0〓0〓0〓1505〓1〓436943〓593470 215988 215706 215727 215741〓22499〓2017-05-23〓0〓231〓2017-05-23〓0〓2017-05-20〓000000000000000〓0〓1100〓2017-5-20〓0〓0〓0〓0〓0
+                }
+                break;
+            case "赞助点兑换元宝成功":
+                //赞助点兑换元宝〓hy815〓123〓100	183.60.204.64	183.60.204.64
+                //赞助点兑换元宝成功〓1405〓486943
+            case "赞助点购买元素成功":
+                //赞助点购买元素成功〓1388〓593770 216288 216006 216027 216041
+            case "赞助点兑换材料箱子成功":
+            case "赞助点兑换宝箱成功":
+                if (split.length >= 2) {
+                    String type = split[0].substring(5, split[0].length() - 2);
+                    postMsg(String.format("赞助点兑换%3$s成功,当前%3$s数量 %1$s，剩余赞助点  %2$s",split[2],split[1],type));
+                }
+                break;
+            case "赞助查询日消费累计":
+                if (split.length >= 2) {
+                    //赞助查询每日消费累计〓hy815	183.60.204.64	183.60.204.64
+                    //赞助查询日消费累计〓hy815〓100〓0
+                }
+                break;
+            case "赞助本日消费累计领奖完成":
+                if (split.length >= 3) {
+                    //赞助点每日消费累计领奖〓hy815	183.60.204.64	183.60.204.64
+                    //赞助本日消费累计领奖完成〓100〓1
+                    lingquItem(LingQuType.xiaofeifuli);
+                }
+                break;
             case "人获":
                 //人获〓hy814〓3※有时很忙〓3096220〓979〓天仙[73]〓0〓36491〓0〓0〓0〓3912〓35330〓0〓108〓0
                 if (mInfo == null) {
@@ -951,9 +982,13 @@ public class ConnectManager {
             case AutoType.wujin:
                 readDaylyTask();
                 mCruCmd = AutoType.dayly;
-                auto = false;
                 break;
             case AutoType.dayly:
+                lingquItem(LingQuType.xiaofeifuli);
+                mCruCmd = LingQuType.xiaofeifuli;
+                auto = false;
+                break;
+            case LingQuType.xiaofeifuli:
                 break;
             case AutoType.yuanbao:
                 break;
@@ -1047,6 +1082,9 @@ public class ConnectManager {
             case AutoType.dayly:
                 readDaylyTask();
                 break;
+            case LingQuType.xiaofeifuli:
+                lingquItem(ConnectManager.LingQuType.xiaofeifuli);
+                break;
             case AutoType.yuanbao:
                 break;
             case AutoType.yuansu:
@@ -1129,12 +1167,14 @@ public class ConnectManager {
             LingQuType.qianghuoli,
             LingQuType.gudinggoumaihuoli,
             LingQuType.yuanbaogoumaihuoli,
+            LingQuType.xiaofeifuli,
     })
     public @interface LingQuType {
         int jubaopen = 1;
         int qianghuoli = 2;
         int gudinggoumaihuoli = 3;
         int yuanbaogoumaihuoli = 4;
+        int xiaofeifuli = 5;
     }
 
     /**
@@ -1177,6 +1217,10 @@ public class ConnectManager {
                 s = "固定资金购买活力";
                 setCmd(R.string.gudinggoumaihuoli);
                 break;
+            case LingQuType.xiaofeifuli:
+                s = "消费福利";
+                setCmd(R.string.xiaofeifuli);
+                break;
         }
 
         postMsg(R.string.ph_msg_lingqu_items,s);
@@ -1197,6 +1241,7 @@ public class ConnectManager {
             LingQuType.qianghuoli,
             LingQuType.gudinggoumaihuoli,
             LingQuType.yuanbaogoumaihuoli,
+            LingQuType.xiaofeifuli,
             AutoType.wujin,
             AutoType.dayly,
             AutoType.yuansu,
@@ -1214,7 +1259,7 @@ public class ConnectManager {
     /**
      * 赞助点购买物品
      */
-    private void zanzhuBuyItems(@ZanZhuType int type, int amount) {
+    public void zanzhuBuyItems(@ZanZhuType int type, int amount) {
         switch (type) {
 
             case ZanZhuType.baoCast:

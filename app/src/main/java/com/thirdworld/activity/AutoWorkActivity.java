@@ -74,6 +74,7 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.btnReadZaHuo).setOnClickListener(this);
         findViewById(R.id.btnResetZaHuo).setOnClickListener(this);
         findViewById(R.id.btnBuyZaHuo).setOnClickListener(this);
+        findViewById(R.id.btnZanZhuBuyItem).setOnClickListener(this);
         findViewById(R.id.yuliu).setOnClickListener(this);
         btnAuto.setOnClickListener(this);
         btnBlackHuoLi.setOnClickListener(this);
@@ -176,6 +177,9 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.btnChuangGuan:
                 chuangGuanClicked(manager);
+                break;
+            case R.id.btnZanZhuBuyItem:
+                zanZhuBuyItemsClicked(manager);
                 break;
             case R.id.btnDaylyTask:
                 manager.setCmd(R.string.dayly_query);
@@ -292,6 +296,52 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
                         SpUtils.saveEMengGuanka(index);
                         SpUtils.saveEMengGuanKaTimes(times);
                         break;
+                }
+            }
+        });
+    }
+
+    public void zanZhuBuyItemsClicked(final ConnectManager manager) {
+        View zanZhuBuy = View.inflate(this, R.layout.view_zanzhu_buy_item, null);
+        final TextView tvType = (TextView) zanZhuBuy.findViewById(R.id.tvType);
+        tvType.setText("元宝");
+        tvType.setTag(ConnectManager.ZanZhuType.yuanbao);
+        final TextInputEditText edtAmount = (TextInputEditText) zanZhuBuy.findViewById(R.id.edtAmount);
+        tvType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String type;
+                @ConnectManager.ZanZhuType int tag;
+                switch (getContentStr(tvType)) {
+                    case "元宝":
+                    default:
+                        type= "宝箱";
+                        tag = ConnectManager.ZanZhuType.baoCast;
+                        break;
+                    case "宝箱":
+                        type = "材料箱子";
+                        tag = ConnectManager.ZanZhuType.cailiaoCast;
+                        break;
+                    case "材料箱子":
+                        type = "元素";
+                        tag = ConnectManager.ZanZhuType.yuansu;
+                        break;
+                    case "元素":
+                        type = "元宝";
+                        tag = ConnectManager.ZanZhuType.yuanbao;
+                        break;
+                }
+                tvType.setText(type);
+                tvType.setTag(tag);
+            }
+        });
+        showDialog("赞助点购买", "", zanZhuBuy, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                @ConnectManager.ZanZhuType int tag = (int) tvType.getTag();
+                int amount = getContentInt(edtAmount);
+                if (amount > 0) {
+                    manager.zanzhuBuyItems(tag, amount);
                 }
             }
         });

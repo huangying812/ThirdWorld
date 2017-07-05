@@ -110,6 +110,14 @@
             android:text="买仙子"/>
 
         <Button
+            android:id="@+id/btnZanZhuBuyItem"
+            android:layout_toRightOf="@+id/btnBuyXianZi"
+            android:layout_below="@id/btnShenShou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="赞助点"/>
+
+        <Button
             android:id="@+id/btnReadZaHuo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
