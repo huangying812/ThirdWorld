@@ -52,6 +52,7 @@ public class QuanDi implements Runnable {
 
     private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     private static final SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy年MM月dd日hh时mm分ss秒");
+    private static final SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy年MM月dd日hh时mm分");
     private static final SimpleDateFormat dateFm = new SimpleDateFormat("EEEE");
     //常量
     //服务器IP
@@ -135,6 +136,11 @@ public class QuanDi implements Runnable {
                 return sdf2.parse(strDate);
             } catch (ParseException e) {
                 e.printStackTrace();
+                try {
+                    return sdf3.parse(strDate);
+                } catch (ParseException e1) {
+                    e1.printStackTrace();
+                }
             }
         }
         return new Date();
