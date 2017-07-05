@@ -98,8 +98,8 @@ public class QuanDi implements Runnable {
 
     public static void main(String... args) {
 //        log(getDate("2017-06-26 19:28:09").toString());
-        大号();
-//        hy812();
+//        大号();
+        hy812();
 //        hy815();
     }
 
@@ -319,6 +319,10 @@ public class QuanDi implements Runnable {
                     setCmd(cmdReadP);
                     break;
                 default:
+                    /*if(split[0].contains("中的资金不足无法进行建造（升级）操作！")){
+                        zhiShaiZi();
+                        return;
+                    }*/
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -780,7 +784,7 @@ public class QuanDi implements Runnable {
                     priceBaseValue = 星期一价格控制线;
                     break;
                 case "星期三":
-                    priceBaseValue = 60;
+                    priceBaseValue = 50;
                     break;
                 case "星期四":
                     priceBaseValue = 60;
