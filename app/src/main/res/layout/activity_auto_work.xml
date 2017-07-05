@@ -143,6 +143,13 @@
             android:layout_toEndOf="@+id/btnResetZaHuo"/>
 
         <Button
+            android:id="@+id/btnUseItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="使用物品"
+            android:layout_below="@+id/btnBuyXianZi"
+            android:layout_toEndOf="@+id/btnBlackHuoLi"/>
+        <Button
             android:visibility="gone"
             android:id="@+id/yuliu"
             android:layout_width="wrap_content"

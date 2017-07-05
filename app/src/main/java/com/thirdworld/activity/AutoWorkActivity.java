@@ -75,6 +75,7 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.btnResetZaHuo).setOnClickListener(this);
         findViewById(R.id.btnBuyZaHuo).setOnClickListener(this);
         findViewById(R.id.btnZanZhuBuyItem).setOnClickListener(this);
+        findViewById(R.id.btnUseItem).setOnClickListener(this);
         findViewById(R.id.yuliu).setOnClickListener(this);
         btnAuto.setOnClickListener(this);
         btnBlackHuoLi.setOnClickListener(this);
@@ -127,6 +128,9 @@ public class AutoWorkActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.btnAuto:
                 manager.autoStart();
+                break;
+            case R.id.btnUseItem:
+                manager.readPackage();
                 break;
             case R.id.btnZanZhuBuy:
                 PopupMenu popupMenu = new PopupMenu(this, v);
