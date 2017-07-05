@@ -245,8 +245,8 @@ public class QuanDi implements Runnable {
             log("服务器返回：" + msg.substring(0, Math.min(msg.length(), 100)));
             if (msg.startsWith("签到〓")) {
                 setConnectState(true);
-//                setCmd(cmdReadP);
-                zhiDing(4);
+                setCmd(cmdReadP);
+//                zhiDing(4);
             } else {
                 processResponse(msg);
                 isSending = false;
@@ -323,7 +323,7 @@ public class QuanDi implements Runnable {
                         @Override
                         public void run() {
                             try {
-                                Thread.sleep(1000 * 60 * 3);
+                                Thread.sleep(1000 * 30 );
                                 setCmd(cmdReadP);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
@@ -350,10 +350,10 @@ public class QuanDi implements Runnable {
                     System.exit(0);
                 }
             case "星期三":
-                if (myHouses.size() >= mMaxBuild) {
+                /*if (myHouses.size() >= mMaxBuild) {
                     postMsg("今天是星期三，策略是建好" + mMaxBuild + "个房子后停止行动。目标达成，停止行动...");
                     System.exit(0);
-                }
+                }*/
                 break;
             case "星期四":
                 break;
@@ -559,16 +559,16 @@ public class QuanDi implements Runnable {
         } else {
             log("你还没出门呢");
         }
-        log(String.format("价格%1$s以上的地皮总数 %2$s，还剩%3$s块可用，空位置共%4$s！", "90", all90, remain90, remain90Pos));
-        log(String.format("价格%1$s以上的地皮总数 %2$s，还剩%3$s块可用，空位置共%4$s！", "80", all80, remain80, remain80Pos));
-        log(String.format("价格%1$s以上的地皮总数 %2$s，还剩%3$s块可用，空位置共%4$s！", "70", all70, remain70, remain70Pos));
-        log(String.format("价格%1$s以上的地皮总数 %2$s，还剩%3$s块可用，空位置共%4$s！", "60", all60, remain60, remain60Pos));
+//        log(String.format("价格%1$s以上的地皮总数 %2$s，还剩%3$s块可用，空位置共%4$s！", "90", all90, remain90, remain90Pos));
+//        log(String.format("价格%1$s以上的地皮总数 %2$s，还剩%3$s块可用，空位置共%4$s！", "80", all80, remain80, remain80Pos));
+//        log(String.format("价格%1$s以上的地皮总数 %2$s，还剩%3$s块可用，空位置共%4$s！", "70", all70, remain70, remain70Pos));
+//        log(String.format("价格%1$s以上的地皮总数 %2$s，还剩%3$s块可用，空位置共%4$s！", "60", all60, remain60, remain60Pos));
         if (!myHouses.isEmpty()) {
 
-            log("我的地皮：");
+//            log("我的地皮：");
             StringBuilder sb = new StringBuilder("我的地皮：");
             for (Map house : myHouses) {
-                log("\t" + house.toString());
+//                log("\t" + house.toString());
                 sb.append(house.showInfo() + "\r\n");
             }
             postMsg(sb.toString());
@@ -780,7 +780,7 @@ public class QuanDi implements Runnable {
                     priceBaseValue = 星期一价格控制线;
                     break;
                 case "星期三":
-                    priceBaseValue = 70;
+                    priceBaseValue = 60;
                     break;
                 case "星期四":
                     priceBaseValue = 60;
