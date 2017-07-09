@@ -469,7 +469,7 @@ public class QuanDi implements Runnable {
         if (mayHasZhiDing) {
             int i = map.hasValueHouse(90);
             if (i < 1) {
-//                i = map.hasValueHouse(80);
+                i = map.hasValueHouse(80);
                 if (i < 1) {
                     zhiShaiZi();
                 } else {
@@ -790,7 +790,7 @@ public class QuanDi implements Runnable {
                     priceBaseValue = 星期一价格控制线;
                     break;
                 case "星期三":
-                    priceBaseValue = 50;
+                    priceBaseValue = 70;
                     break;
                 case "星期四":
                     priceBaseValue = 60;
@@ -803,7 +803,7 @@ public class QuanDi implements Runnable {
                     break;
                 case "星期日":
                 case "星期天":
-                    priceBaseValue = 40;
+                    priceBaseValue = 30;
                     break;
             }
             return price >= priceBaseValue && price < 1000;
