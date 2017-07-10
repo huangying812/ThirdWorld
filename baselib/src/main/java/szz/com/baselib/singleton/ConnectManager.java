@@ -676,6 +676,18 @@ public class ConnectManager {
                     postMsg(String.format("提取盟宠经验水成功，物品id%1$s，增加 %2$s 盟宠经验水，当前盟宠经验水 %3$s",split[1],split[4],split[3]));
                 }
                 break;
+            case "帮派个人开启宝箱":
+                if (split.length >= 5) {
+                    //帮派个人开启宝箱〓40499〓1480〓宝箱_+4〓神器_轩辕剑+7
+                    if (split[4].contains("+9")) {
+                        postMsg("开到了+9神器：" + split[4]);
+                    }
+                    int amount = str2Int(split[2]);
+                    if (amount > 0) {
+                        useItem(split[1], amount);
+                    }
+                }
+                break;
             case "帮派读取私人物品":
                 if (split.length >= 2) {
                     //帮派个人物品读取〓hy814〓123	183.60.204.64	183.60.204.64
@@ -683,7 +695,7 @@ public class ConnectManager {
                     String[] items = split[1].split("，");
                     for (String item : items) {
                         String trim = item.trim();
-                        if (trim.startsWith("※增加")||trim.startsWith("※盟宠")) {
+                        if (trim.startsWith("※增加")||trim.startsWith("※盟宠")||trim.startsWith("宝箱_+4")) {
                             String[] values = trim.split(" ");
                             useItem(values[2],str2Int(values[1]));
                         }
@@ -1104,7 +1116,6 @@ public class ConnectManager {
     }
 
     public void useItem(String id, int amount) {
-        postMsg(R.string.msg_read_item);
         setCmd(R.string.item_use, id, amount);
     }
 

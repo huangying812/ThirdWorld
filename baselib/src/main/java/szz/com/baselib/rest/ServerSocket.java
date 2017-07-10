@@ -3,8 +3,6 @@ package szz.com.baselib.rest;
 import android.text.TextUtils;
 import android.util.Log;
 
-import szz.com.baselib.application.ContextHolder;
-
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,6 +19,7 @@ import java.util.concurrent.Executors;
 
 import szz.com.baselib.EventUtil;
 import szz.com.baselib.R;
+import szz.com.baselib.application.ContextHolder;
 import szz.com.baselib.entity.events.ConnectState;
 import szz.com.baselib.entity.events.GetServerPack;
 
@@ -68,6 +67,7 @@ public class ServerSocket implements Runnable {
     //当前发送的数据
     private String mCurCmd;
     private HeartBeatThread mHeartBeatThread;
+    private byte[] mCacheData;
 
     /**
      * @brief 构造函数
@@ -114,10 +114,41 @@ public class ServerSocket implements Runnable {
                 public void run() {
                     while (flagOpen) {
                         try {
-                            int read = mInputStream.read(dPacket.getData());
+                            byte[] data = dPacket.getData();
+                            int read = mInputStream.read(data);
+                            log("read:" + read);
                             dPacket.setLength(read);
                             //通知观察者
-                            通知观察者(ServerSocket.this.dPacket);
+//                            通知观察者(ServerSocket.this.dPacket);
+                            try {
+                                String msg = new String(data, 0, dPacket.getLength(), bm);
+                                log("服务器返回：" + msg);
+                                if (msg.startsWith("签到〓")) {
+                                    setConnectState(true);
+                                } else {
+                                    if (msg.startsWith("帮派读取私人物品") && read == 1358) {
+                                        mCacheData = data;
+                                    } else {
+                                        if (mCacheData != null && mCacheData.length > 0) {
+                                            int length = mCacheData.length;
+                                            byte[] newData = new byte[length + read];
+                                            for (int i = 0; i < length; i++) {
+                                                newData[i] = mCacheData[i];
+                                            }
+                                            for (int i = 0; i < read; i++) {
+                                                newData[length + i] = data[i];
+                                            }
+                                            msg = new String(newData, bm);
+                                            mCacheData = null;
+                                        }
+                                        EventUtil.post(new GetServerPack(msg, mCurCmd));
+                                        isSending = false;
+                                        send();
+                                    }
+                                }
+                            } catch (UnsupportedEncodingException e) {
+                                e.printStackTrace();
+                            }
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
