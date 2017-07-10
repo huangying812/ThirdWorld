@@ -67,7 +67,7 @@ public class ServerSocket implements Runnable {
     //当前发送的数据
     private String mCurCmd;
     private HeartBeatThread mHeartBeatThread;
-    private byte[] mCacheData;
+    private volatile byte[] mCacheData;
 
     /**
      * @brief 构造函数
