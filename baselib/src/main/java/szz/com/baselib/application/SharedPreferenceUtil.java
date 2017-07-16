@@ -32,7 +32,7 @@ public class SharedPreferenceUtil {
     }
 
     public static boolean saveInt(Context context, String key, int value, String preferenceName, boolean cache) {
-        SharedPreferences prefs = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(context, preferenceName);
         SharedPreferences.Editor editor = prefs.edit();
         if (editor != null) {
             editor.putInt(key, value);
@@ -71,8 +71,12 @@ public class SharedPreferenceUtil {
             }
         }
 
-        SharedPreferences prefs = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(context, preferenceName);
         return prefs.getInt(key, defValue);
+    }
+
+    static SharedPreferences getSharedPreferences(Context context, String preferenceName) {
+        return context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
     }
 
 
@@ -86,7 +90,7 @@ public class SharedPreferenceUtil {
      * 通用long的保存读取
      */
     public static boolean saveLong(Context context, String key, long value, String preferenceName, boolean cache) {
-        SharedPreferences prefs = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(context, preferenceName);
         SharedPreferences.Editor editor = prefs.edit();
         if (editor != null) {
             editor.putLong(key, value);
@@ -125,7 +129,7 @@ public class SharedPreferenceUtil {
             }
         }
 
-        SharedPreferences prefs = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(context, preferenceName);
         return prefs.getLong(key, defValue);
     }
 
@@ -140,7 +144,7 @@ public class SharedPreferenceUtil {
      * 通用boolean的保存读取
      */
     public static boolean saveBoolean(Context context, String key, boolean value, String preferenceName, boolean cache) {
-        SharedPreferences prefs = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(context, preferenceName);
         SharedPreferences.Editor editor = prefs.edit();
         if (editor != null) {
             editor.putBoolean(key, value);
@@ -178,7 +182,7 @@ public class SharedPreferenceUtil {
             }
         }
 
-        SharedPreferences prefs = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(context, preferenceName);
         return prefs.getBoolean(key, defValue);
     }
 
@@ -214,7 +218,7 @@ public class SharedPreferenceUtil {
      * 通用float的保存读取
      */
     public static boolean saveFloat(Context context, String key, float value, String preferenceName, boolean cache) {
-        SharedPreferences prefs = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(context, preferenceName);
         SharedPreferences.Editor editor = prefs.edit();
         if (editor != null) {
             editor.putFloat(key, value);
@@ -252,7 +256,7 @@ public class SharedPreferenceUtil {
             }
         }
 
-        SharedPreferences prefs = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(context, preferenceName);
         return prefs.getFloat(key, defValue);
     }
 
@@ -261,7 +265,7 @@ public class SharedPreferenceUtil {
     //====================== all ==========================
 
     public static boolean remove(Context context, String key, String preferenceName) {
-        SharedPreferences prefs = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(context, preferenceName);
         SharedPreferences.Editor editor = prefs.edit();
         if (editor != null) {
             editor.remove(key);
@@ -284,7 +288,7 @@ public class SharedPreferenceUtil {
     }
 
     public static boolean haveKey(Context context, String key, String preferenceName) {
-        SharedPreferences prefs = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(context, preferenceName);
         return prefs.contains(key);
     }
 

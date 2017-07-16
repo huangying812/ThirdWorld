@@ -997,7 +997,7 @@ public class ConnectManager {
                     return true;
                 }
             }
-            if (mInfo != null && mInfo.resetTimes12Gong < SpUtils.get12GongResetTimes()) {
+            if (SpUtils.get12GongReset() && mInfo != null && mInfo.resetTimes12Gong < SpUtils.get12GongResetTimes()) {
                 reset12Gong(SpUtils.get12GongResetIndex());
             }
             postMsg("12宫任务都完成了！");

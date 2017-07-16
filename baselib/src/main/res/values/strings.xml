@@ -206,35 +206,75 @@
     <string name="str_qdgxcom">读圈地数据</string>
     <string name="str_dicecom">圈地掷色子</string>
     <string name="str_qdbegin">开通圈地</string>
-    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_settings">设置</string>
 
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
-    <string name="pref_header_general">General</string>
+    <string name="pref_header_general">通用设置</string>
 
-    <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
-    </string>
+    <string name="pref_title_social_recommendations">启用12宫重置</string>
+    <string name="pref_description_social_recommendations">闯完免费次数后，会使用赞助点重置闯关次数</string>
 
     <string name="pref_title_display_name">Display name</string>
     <string name="pref_default_display_name">John Smith</string>
 
-    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string name="pref_title_12gong_reset_times">重置次数</string>
+    <string name="pref_title_add_friends_to_messages">重置关卡</string>
+    <string-array name="pref_12gong_reset_times_titles">
+        <item>1次</item>
+        <item>2次</item>
+        <item>3次</item>
+        <item>4次</item>
+        <item>5次</item>
+        <item>6次</item>
+        <item>7次</item>
+        <item>8次</item>
+        <item>9次</item>
+    </string-array>
+    <string-array name="pref_12gong_reset_times_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+
     <string-array name="pref_example_list_titles">
-        <item>Always</item>
-        <item>When possible</item>
-        <item>Never</item>
+        <item>白羊宫</item>
+        <item>金牛宫</item>
+        <item>双子宫</item>
+        <item>巨蟹宫</item>
+        <item>狮子宫</item>
+        <item>处女宫</item>
+        <item>天秤宫</item>
+        <item>天蝎宫</item>
+        <item>射手宫</item>
+        <item>山羊宫</item>
+        <item>水瓶宫</item>
+        <item>双鱼宫</item>
     </string-array>
     <string-array name="pref_example_list_values">
         <item>1</item>
-        <item>0</item>
-        <item>-1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
     </string-array>
 
     <!-- Example settings for Data & Sync -->
-    <string name="pref_header_data_sync">Data &amp; sync</string>
+    <string name="pref_header_data_sync">数据 &amp; 同步</string>
 
     <string name="pref_title_sync_frequency">Sync frequency</string>
     <string-array name="pref_sync_frequency_titles">
@@ -271,7 +311,7 @@
     <string name="pref_title_system_sync_settings">System sync settings</string>
 
     <!-- Example settings for Notifications -->
-    <string name="pref_header_notifications">Notifications</string>
+    <string name="pref_header_notifications">通知</string>
 
     <string name="pref_title_new_message_notifications">New message notifications</string>
 

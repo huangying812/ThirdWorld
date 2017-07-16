@@ -1,8 +1,6 @@
 package szz.com.baselib.rest;
 
 
-import android.support.annotation.NonNull;
-
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,10 +18,8 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import szz.com.baselib.entity.events.LogStr;
-
-import static szz.com.baselib.parseUtil.str2Int;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -36,6 +32,7 @@ import static szz.com.baselib.parseUtil.str2Int;
 
 public class QuanDi implements Runnable {
 
+    public static Pattern NUM_REG = Pattern.compile("\\d+(,\\d{3})*");
     public static final String bm = "gbk";
     public static final int 星期一价格控制线 = 80;
     //盟军读取个人圈地运动〓hy814〓123\t183.60.204.64\t183.60.204.64
@@ -465,7 +462,7 @@ public class QuanDi implements Runnable {
         }
     }
 
-    private void zhiShaiZi(@NonNull Map map) {
+    private void zhiShaiZi(Map map) {
         if (mayHasZhiDing) {
             int i = map.hasValueHouse(90);
             if (i < 1) {
@@ -915,5 +912,31 @@ public class QuanDi implements Runnable {
 
     private static void log(String arg) {
         System.err.println(TAG + arg);
+    }
+
+    public static int str2Int(String intStr) {
+        int integer = 0;
+        try {
+            Matcher m = NUM_REG.matcher(intStr);
+            if (m.find()) {
+                integer = Integer.valueOf(m.group());
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return integer;
+    }
+
+    public static class LogStr {
+
+        public final String logMsg;
+
+        public static LogStr newInstance(String msg){
+            return new LogStr(msg);
+        }
+
+        public LogStr(String logMsg) {
+            this.logMsg = logMsg;
+        }
     }
 }
