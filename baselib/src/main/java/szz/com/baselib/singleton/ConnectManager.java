@@ -1083,7 +1083,7 @@ public class ConnectManager {
 
     private int getJingYingGuanLimit() {
         if (mInfo == null) {
-            return 8;
+            return 22;
         }
         int jingYingGuan = mInfo.jingYingGuan;
         if (jingYingGuan>=180) {
