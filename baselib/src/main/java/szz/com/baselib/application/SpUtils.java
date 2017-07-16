@@ -168,7 +168,7 @@ public class SpUtils {
     }
 
     public static boolean get12GongReset() {
-        return getBoolean(SP_12GONG_RESET,false);
+        return getBoolean(SP_12GONG_RESET,true);
     }
 
     private static final String SP_12GONG_RESET_INDEX = "SP_12GONG_RESET_INDEX";
@@ -178,7 +178,7 @@ public class SpUtils {
     }
 
     public static int get12GongResetIndex() {
-        return getInt(SP_12GONG_RESET_INDEX, 1);
+        return getInt(SP_12GONG_RESET_INDEX, 7);
     }
 
     private static final String SP_LAST_CHUANG_GUAN_PROF = "SP_LAST_CHUANG_GUAN_PROF";
