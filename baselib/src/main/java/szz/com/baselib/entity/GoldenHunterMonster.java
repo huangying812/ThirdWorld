@@ -74,7 +74,7 @@ public class GoldenHunterMonster extends BaseRole {
     public String toString() {
         return "怪物" + index + "{" + "名称：" + name +
 //                " 等级：" + level + " 奖励：" + reward +
-                " 总血量：" + getHpStr() + " 剩余：" + getRemainHpPercent() + " 防御：" +
+                " 总血量：" + getHpStr() + " 剩余：" + getRemainHpPercentStr() + " 防御：" +
                 getDefStr() + "}";
     }
 
@@ -82,8 +82,12 @@ public class GoldenHunterMonster extends BaseRole {
     DecimalFormat df = new DecimalFormat("######0.0");
 
     @NonNull
-    public String getRemainHpPercent() {
-        return df.format(hp * 100 / maxHp) + "%";
+    public String getRemainHpPercentStr() {
+        return df.format(getRemainHpPercent()) + "%";
+    }
+
+    private double getRemainHpPercent() {
+        return hp * 100 / maxHp;
     }
 
     @NonNull
@@ -185,9 +189,16 @@ public class GoldenHunterMonster extends BaseRole {
 
     public String getChallengeTips() {
         if (hp > 0) {
-            return String.format("即将挑战 总血量 %1$s 剩余 %2$s 进度，防御 %3$s 的 %4$s ,是否继续？",getHpStr(),getRemainHpPercent(),getDefStr(),name);
+            return String.format("即将挑战 总血量 %1$s 剩余 %2$s 进度，防御 %3$s 的 %4$s ,是否继续？",getHpStr(), getRemainHpPercentStr(),getDefStr(),name);
         } else {
             return String.format("防御 %1$s 的 %2$s 已被 %3$s 杀死！",getDefStr(),name,killer);
         }
+    }
+
+    public boolean fitChallenge() {
+        boolean b = this.天火神兽Ⅱ.defense < 10000000;
+        boolean b1 = !name.contains("血牛") || maxHp < 2500000000l;
+        boolean b2 = getRemainHpPercent() * reward / 100 >= 600;
+        return b && b1 && b2;
     }
 }

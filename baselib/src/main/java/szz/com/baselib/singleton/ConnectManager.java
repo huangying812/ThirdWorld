@@ -209,12 +209,49 @@ public class ConnectManager {
         challengeBaseTask();
     }
 
-    public void challegeHunterMoster(int index) {
-        setCmd(R.string.lieren_tiaozhan_boss, index);
-    }
-
     public void readHunterMonster() {
         setCmd(R.string.lieren_shuaxin);
+    }
+
+    private void onReadHunterRsp(String[] split) {
+        if (split.length >= 2) {
+            //盟军读取猎物成功〓上古.莽夫.方衅；4501843；250.00；3.75；5.00；2.50；；1；1223938387500；1223938387500；15600
+            //上古.血牛.薛押；1831883；750.00；1.25；5.00；2.50；；1；1494129037500；1494129037500；13200
+            //臻品.莽夫.陈降腔；901418；225.00；3.38；4.50；2.25；；1；220565554875；220565554875；11000
+            //高端.金刚.宋被；458631；175.00；0.88；10.50；1.75；；1；87283087500；87283087500；9000
+            //菜鸟.神行.单于捣；200580；100.00；0.50；2.00；3.00；；1；21813003000；21813003000；7200
+            //大气.血牛.田诱；105389；450.00；0.75；3.00；1.50；；1；51574421250；51574421250；5600
+            //菜鸟.金刚.彭卫；46898；100.00；0.50；6.00；1.00；；1；5100085500；5100085500；4200
+            //菜鸟.血牛.颛孙只俏；21352；300.00；0.50；2.00；1.00；；1；6965874000；6965874000；3000
+            //高端.金刚.东方究；9509；175.00；0.88；10.50；1.75；；1；1809556875；1809556875；2000
+            //极品.莽夫.孙冈；4824；200.00；3.00；4.00；2.00；；1；1049076000；1049076000；1200
+            //大气.血牛.朱币；2303；450.00；0.75；3.00；1.50；；1；1126710000；1126710000；600
+            //菜鸟.金刚.侯颜；1070；100.00；0.50；6.00；1.00；；1；116290500；116290500；200
+            //187.5	262.5	150	187.5
+            //187.5	187.5	150	262.5
+            //225	187.5	131.25	243.75
+            //262.5	225	93.75	206.25
+            //225	187.5	150	225
+            String[] monsters = split[1].split("\r\n");
+            ArrayList<GoldenHunterMonster> monsterItems = new ArrayList<>();
+            int count = 1;
+            for (String monster : monsters) {
+                GoldenHunterMonster hunterMonster = GoldenHunterMonster.parse(count++, monster);
+                postMsg(hunterMonster.toString());
+                monsterItems.add(hunterMonster);
+                if (hunterMonster.fitChallenge()) {
+                    challegeHunterMoster(hunterMonster.index);
+                    return;
+                }
+            }
+            if (!monsterItems.isEmpty()) {
+                EventUtil.post(new MonsterRsp(monsterItems));
+            }
+        }
+    }
+
+    public void challegeHunterMoster(int index) {
+        setCmd(R.string.lieren_tiaozhan_boss, index);
     }
 
     public void chaoHeiBuyHuoLi(int times) {
@@ -572,36 +609,7 @@ public class ConnectManager {
                 }
                 break;
             case "盟军读取猎物成功":
-                if (split.length >= 2) {
-                    //盟军读取猎物成功〓上古.莽夫.方衅；4501843；250.00；3.75；5.00；2.50；；1；1223938387500；1223938387500；15600
-                    //上古.血牛.薛押；1831883；750.00；1.25；5.00；2.50；；1；1494129037500；1494129037500；13200
-                    //臻品.莽夫.陈降腔；901418；225.00；3.38；4.50；2.25；；1；220565554875；220565554875；11000
-                    //高端.金刚.宋被；458631；175.00；0.88；10.50；1.75；；1；87283087500；87283087500；9000
-                    //菜鸟.神行.单于捣；200580；100.00；0.50；2.00；3.00；；1；21813003000；21813003000；7200
-                    //大气.血牛.田诱；105389；450.00；0.75；3.00；1.50；；1；51574421250；51574421250；5600
-                    //菜鸟.金刚.彭卫；46898；100.00；0.50；6.00；1.00；；1；5100085500；5100085500；4200
-                    //菜鸟.血牛.颛孙只俏；21352；300.00；0.50；2.00；1.00；；1；6965874000；6965874000；3000
-                    //高端.金刚.东方究；9509；175.00；0.88；10.50；1.75；；1；1809556875；1809556875；2000
-                    //极品.莽夫.孙冈；4824；200.00；3.00；4.00；2.00；；1；1049076000；1049076000；1200
-                    //大气.血牛.朱币；2303；450.00；0.75；3.00；1.50；；1；1126710000；1126710000；600
-                    //菜鸟.金刚.侯颜；1070；100.00；0.50；6.00；1.00；；1；116290500；116290500；200
-                    //187.5	262.5	150	187.5
-                    //187.5	187.5	150	262.5
-                    //225	187.5	131.25	243.75
-                    //262.5	225	93.75	206.25
-                    //225	187.5	150	225
-                    String[] monsters = split[1].split("\r\n");
-                    ArrayList<GoldenHunterMonster> monsterItems = new ArrayList<>();
-                    int count = 1;
-                    for (String monster : monsters) {
-                        GoldenHunterMonster hunterMonster = GoldenHunterMonster.parse(count++, monster);
-                        postMsg(hunterMonster.toString());
-                        monsterItems.add(hunterMonster);
-                    }
-                    if (!monsterItems.isEmpty()) {
-                        EventUtil.post(new MonsterRsp(monsterItems));
-                    }
-                }
+                onReadHunterRsp(split);
                 break;
             case "帮派副本基本任务挑战结束":
                 if (split.length >= 4) {

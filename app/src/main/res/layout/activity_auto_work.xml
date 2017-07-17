@@ -103,6 +103,7 @@
 
         <Button
             android:id="@+id/btnBuyXianZi"
+            android:visibility="gone"
             android:layout_toRightOf="@id/btnBlackHuoLi"
             android:layout_below="@id/btnChuangGuan"
             android:layout_width="wrap_content"

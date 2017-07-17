@@ -217,6 +217,7 @@ public class UserInfo {
                 "\t宝箱='" + baoXiangAmount + '\'' +
                 "\r\n赞助余点='" + zanZhuDianRemain + '\'' +
                 "\t圈地值='" + quanDiRemain + '\'' +
+                "\t赏金猎人剩余挑战次数='" + unKnow8 +
                 "\t神器升级次数='" + shenQiLelelUpRemain + '\''
                 ;
     }

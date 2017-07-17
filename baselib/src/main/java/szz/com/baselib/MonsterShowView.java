@@ -52,7 +52,7 @@ public class MonsterShowView extends TabletView<GoldenHunterMonster> {
                         list.add(item.getHpStr() + "");
                         break;
                     case 6://"进度"
-                        list.add(item.getRemainHpPercent() + "");
+                        list.add(item.getRemainHpPercentStr() + "");
                         break;
                 }
                 if (i % 2 == 0) {
