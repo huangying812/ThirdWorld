@@ -300,6 +300,8 @@ public class QuanDi implements Runnable {
 
                     break;
                 case "错误，指定投骰子需要在每周的2.4.6才有效！且每天仅有2次机会！！":
+                case "错误，3-3阁下的2次指定次数已经用完了！":
+//错误，3-3阁下的2次指定次数已经用完了！
 //错误，指定投骰子需要在每周的2.4.6才有效！且每天仅有2次机会！！
                     mayHasZhiDing = false;
                     setCmd(cmdReadP);
