@@ -254,6 +254,17 @@ public class ConnectManager {
         setCmd(R.string.lieren_tiaozhan_boss, index);
     }
 
+    private void onChallengeHunterRsp(String[] split) {
+        //盟军赏金猎人挑战结束〓9〓1146480000〓2000〓青铜勋章〓6〓0〓0
+        if (TextUtils.isEmpty(split[4])) {
+            int index = str2Int(split[1]);
+            challegeHunterMoster(index);
+        } else {
+            readHunterMonster();
+        }
+
+    }
+
     public void chaoHeiBuyHuoLi(int times) {
         if (mInfo == null) {
             login(2);
@@ -610,6 +621,10 @@ public class ConnectManager {
                 break;
             case "盟军读取猎物成功":
                 onReadHunterRsp(split);
+                break;
+            case "盟军赏金猎人挑战结束":
+                //盟军赏金猎人挑战结束〓9〓1146480000〓2000〓青铜勋章〓6〓0〓0
+                onChallengeHunterRsp(split);
                 break;
             case "帮派副本基本任务挑战结束":
                 if (split.length >= 4) {
