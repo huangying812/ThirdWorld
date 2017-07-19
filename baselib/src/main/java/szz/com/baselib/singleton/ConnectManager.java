@@ -966,7 +966,8 @@ public class ConnectManager {
                             } else {
                                 gap = GOLDEN_HUNTER_TIMES - doneTimes;
                                 postMsg(R.string.ph_msg_dayly_task_hunter_unreach, doneTimes, gap);
-                                Log.e(TAG, "update: 要进行赏金猎人副本，停止了，还差" + gap + " 次");
+//                                Log.e(TAG, "update: 要进行赏金猎人副本，停止了，还差" + gap + " 次");
+                                readHunterMonster();
                                 continue middle;
                             }
                     }

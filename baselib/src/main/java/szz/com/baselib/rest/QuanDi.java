@@ -678,7 +678,7 @@ public class QuanDi implements Runnable {
                 int index = this.index - 1;
                 for (int i = 1; i < 10; i++) {
                     Map map = mMaps.get((index + i) % mMaps.size());
-                    if (map.price >= price && map.canBuild()) {
+                    if ((map.price >= price || map.isMyHouse()) && map.canBuild()) {
                         return i;
                     }
                 }

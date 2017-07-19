@@ -112,7 +112,7 @@
 
         <Button
             android:id="@+id/btnZanZhuBuyItem"
-            android:layout_toRightOf="@+id/btnBuyXianZi"
+            android:layout_toRightOf="@id/btnBlackHuoLi"
             android:layout_below="@id/btnShenShou"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -148,7 +148,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="使用物品"
-            android:layout_below="@+id/btnBuyXianZi"
+            android:layout_below="@+id/btnZanZhuBuyItem"
             android:layout_toEndOf="@+id/btnBlackHuoLi"/>
         <Button
             android:visibility="gone"
