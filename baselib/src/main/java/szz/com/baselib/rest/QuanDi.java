@@ -455,11 +455,14 @@ public class QuanDi implements Runnable {
             int i = map.hasValueHouse(90);
             if (i < 1) {
 //                i = map.hasValueHouse(80);
-                if (i < 1) {
-                    zhiShaiZi();
-                } else {
+                if (i > 0) {
                     zhiDing(i);
+                } else if (myHouses.size() >= mMaxBuild) {
+                    zhiDing(9);
+                } else {
+                    zhiShaiZi();
                 }
+
             } else {
                 zhiDing(i);
             }

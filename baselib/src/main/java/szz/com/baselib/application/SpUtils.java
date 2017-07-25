@@ -5,11 +5,13 @@ package szz.com.baselib.application;
 
 
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import szz.com.baselib.entity.ChuangGuanProf;
 
 public class SpUtils {
 
+    private static final SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(ContextHolder.getContext());
     private static final String SP_ACCOUNT = "SP_ACCOUNT";
 
     public static void saveAccount(String account) {
@@ -24,6 +26,44 @@ public class SpUtils {
 
     public static void savePwd(String pwd) {
         saveString(SP_PWD, pwd);
+    }
+
+    private static String getString(String key, String defValue) {
+        return settings.getString(key,defValue);
+    }
+
+    private static void saveString(String key, String value) {
+        settings.edit().putString(key, value).commit();
+    }
+
+    private static int getInt(String key, int defValue) {
+        int anInt;
+        try {
+            anInt = settings.getInt(key, defValue);
+        } catch (Exception e) {
+            e.printStackTrace();
+            anInt = Integer.parseInt(getString(key, defValue + ""));
+        }
+        return anInt;
+    }
+
+    private static void saveInt(String key, int value) {
+        settings.edit().putInt(key, value).commit();
+    }
+
+    private static boolean getBoolean(String key, boolean defValue) {
+        boolean aBoolean;
+        try {
+            aBoolean = settings.getBoolean(key, defValue);
+        } catch (Exception e) {
+            e.printStackTrace();
+            aBoolean = Boolean.parseBoolean(getString(key, defValue + ""));
+        }
+        return aBoolean;
+    }
+
+    private static void saveBoolean(String key, boolean value) {
+        settings.edit().putBoolean(key, value).commit();
     }
 
     public static String getPwd() {
@@ -209,8 +249,18 @@ public class SpUtils {
         saveString(SP_LAST_CHUANG_GUAN_PROF, prof.type);
     }
 
+    private static final String SP_WUJIN_AUTO_CHALLENGE = "SP_WUJIN_AUTO_CHALLENGE";
 
-    private static final String PREFS_NAME = "com.szz.thirdworld.prefs";
+    public static boolean getWuJinAutoChallenge() {
+        return getBoolean(SP_WUJIN_AUTO_CHALLENGE,true);
+    }
+
+    public static void saveWuJinAutoChallenge(boolean b) {
+        saveBoolean(SP_WUJIN_AUTO_CHALLENGE, b);
+    }
+
+
+    /*private static final String PREFS_NAME = "com.szz.thirdworld.prefs";
 
     public static SharedPreferences getSharedPreferences(){
         return SharedPreferenceUtil.getSharedPreferences(ContextHolder.getContext(),PREFS_NAME);
@@ -286,6 +336,6 @@ public class SpUtils {
 
     public static boolean remove(String key, String preferenceName) {
         return SharedPreferenceUtil.remove(ContextHolder.getContext(), key, preferenceName);
-    }
+    }*/
 }
 

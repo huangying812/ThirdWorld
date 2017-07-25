@@ -193,18 +193,23 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             bindPreferenceSummaryToValue(findPreference("SP_12GONG_RESET_TIMES"));
             bindPreferenceSummaryToValue(findPreference("SP_12GONG_RESET_INDEX"));
 //            bindPreferenceSummaryToValue(findPreference("SP_12GONG_RESET"));
-//            bindPreferenceSummaryToValue(findPreference("SP_12GONG_RESET"));
+//            bindPreferenceSummaryToValue(findPreference("SP_WUJIN_AUTO_CHALLENGE"));
         }
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
             int id = item.getItemId();
-            if (id == android.R.id.home) {
-                startActivity(new Intent(getActivity(), SettingsActivity.class));
-                return true;
+            switch (id) {
+                case android.R.id.home:
+                    startActivity(new Intent(getActivity(), SettingsActivity.class));
+                    return true;
+                case R.id.wujin_auto_challenge:
+//                    SpUtils.saveWuJinAutoChallenge(item.isChecked());
+                    break;
             }
             return super.onOptionsItemSelected(item);
         }
+
     }
 
     /**

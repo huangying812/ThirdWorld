@@ -41,4 +41,12 @@
         android:singleLine="true"
         android:title="@string/pref_title_display_name"/>
 
+    <SwitchPreference
+        android:id="@+id/wujin_auto_challenge"
+        android:defaultValue="true"
+        android:key="SP_WUJIN_AUTO_CHALLENGE"
+        android:title="@string/pref_title_wujin_auto_challenge"
+        android:summary="@string/pref_tips_wujin_auto_challenge"
+        />
+
 </PreferenceScreen>

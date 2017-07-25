@@ -306,6 +306,8 @@
         <item>3</item>
     </string-array>
 
+    <string name="pref_title_wujin_auto_challenge">自动无尽关卡</string>
+    <string name="pref_tips_wujin_auto_challenge">挑战当前关卡Boss,若成功自动驻守下一关</string>
     <string-array name="multi_select_list_preference_default_value"/>
 
     <string name="pref_title_system_sync_settings">System sync settings</string>

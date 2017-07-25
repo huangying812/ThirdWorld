@@ -1079,10 +1079,14 @@ public class ConnectManager {
             //帮派读取无尽关卡返回〓32〓31〓2017-06-21 12:28:33〓2017年6月21日21时30分36秒
             int curGuan = Integer.valueOf(split[1]);
             int passedGuan = Integer.valueOf(split[2]);
-            if (curGuan > passedGuan) {
-                challengeWuJinBoss(curGuan);
+            if(SpUtils.getWuJinAutoChallenge()){
+                if (curGuan > passedGuan) {
+                    challengeWuJinBoss(curGuan);
+                } else {
+                    changeWuJinGuan(passedGuan + 1);
+                }
             } else {
-                changeWuJinGuan(passedGuan + 1);
+                doNextAuto();
             }
         }
     }
