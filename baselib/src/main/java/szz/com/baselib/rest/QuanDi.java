@@ -330,9 +330,9 @@ public class QuanDi implements Runnable {
     private void onBuildRsp(String str) {
         最新坐标(str);
         if (myHouses.size() < mMaxBuild) {
-            Map map2 = mMaps.get(mCurMapIndex - 1);
-            if (!map2.BuildIfGood()) {
-                zhiShaiZi(map2);
+            Map map = mMaps.get(mCurMapIndex - 1);
+            if (!map.BuildIfGood()) {
+                zhiShaiZi(map);
             }
         } else {
             zhiShaiZi();
@@ -344,7 +344,7 @@ public class QuanDi implements Runnable {
             case "星期一":
                 if (myHouses.size() >= 2) {
                     postMsg("今天是星期一，策略是建好两个房子后停止行动。目标达成，停止行动...");
-//                    System.exit(0);
+                    System.exit(0);
                 }
             case "星期二":
                 if (myHouses.size() >= 4) {
@@ -454,7 +454,7 @@ public class QuanDi implements Runnable {
         if (mayHasZhiDing) {
             int i = map.hasValueHouse(90);
             if (i < 1) {
-//                i = map.hasValueHouse(80);
+                i = map.hasValueHouse(80);
                 if (i > 0) {
                     zhiDing(i);
                 } else if (myHouses.size() >= mMaxBuild) {
@@ -791,7 +791,7 @@ public class QuanDi implements Runnable {
         }
 
         public boolean BuildIfGood() {
-            if (priceFit() && canBuild()) {
+            if (mCurMapZuobiao < 20000 && priceFit() && canBuild()) {
                 build();
                 return true;
             }
