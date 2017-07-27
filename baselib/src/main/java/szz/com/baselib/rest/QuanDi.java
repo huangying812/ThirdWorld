@@ -457,7 +457,7 @@ public class QuanDi implements Runnable {
                 i = map.hasValueHouse(80);
                 if (i > 0) {
                     zhiDing(i);
-                } else if (myHouses.size() >= mMaxBuild) {
+                } else if (buildFinish()) {
                     zhiDing(9);
                 } else {
                     zhiShaiZi();
@@ -469,6 +469,14 @@ public class QuanDi implements Runnable {
         } else {
             zhiShaiZi();
         }
+    }
+
+    private boolean buildFinish() {
+        boolean b = myHouses.size() >= mMaxBuild;
+        for (Map myHouse : myHouses) {
+            b &= (myHouse.getMyLevel() >= 5);
+        }
+        return b;
     }
 
     private void zhiShaiZi() {
