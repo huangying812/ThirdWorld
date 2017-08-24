@@ -194,7 +194,7 @@
             android:layout_weight="1"
             android:hint="接收端ip"
             android:paddingRight="@dimen/com_padding_medium"
-            android:text="183.60.204.64"/>
+            android:text="183.60.204.16"/>
 
         <ImageView
             android:id="@+id/tvChangTarIp"

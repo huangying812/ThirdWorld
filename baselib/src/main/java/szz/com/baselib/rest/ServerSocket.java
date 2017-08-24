@@ -37,7 +37,7 @@ public class ServerSocket implements Runnable {
     public static final String bm = "gbk";
     //常量
     //服务器IP  
-    private final String SERVER_IP = "183.60.204.64";
+    private final String SERVER_IP = "183.60.204.16";
     //语音端口  
     private final int SERVER_PORT_CMD = 9103;
     //本地端口  

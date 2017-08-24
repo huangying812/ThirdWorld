@@ -34,17 +34,17 @@ public class QuanDi implements Runnable {
     public static Pattern NUM_REG = Pattern.compile("\\d+(,\\d{3})*");
     public static final String bm = "gbk";
     public static final int 星期一价格控制线 = 80;
-    //盟军读取个人圈地运动〓hy814〓123\t183.60.204.64\t183.60.204.64
-    //盟军圈地运动本次开通〓hy814〓123\t183.60.204.64\t183.60.204.64
-    //盟军圈地读取最新服务器数据\t183.60.204.64\t183.60.204.64
-    //盟军圈地掷骰子〓hy814〓123\t183.60.204.64\t183.60.204.64
-    //盟军圈地开始进行建造升级〓hy814〓123〓10005\t183.60.204.64\t183.60.204.64
-    public static String cmdReadS = "盟军圈地读取最新服务器数据\t183.60.204.64\t183.60.204.64";
-    public static String cmdReadP = "盟军读取个人圈地运动〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64";
-    public static String cmdEnable = "盟军圈地运动本次开通〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64";
-    public static String cmdZhiSZ = "盟军圈地掷骰子〓%1$s〓%2$s\t183.60.204.64\t183.60.204.64";
-    public static String cmdZhiZD = "盟军圈地掷骰子指定〓%1$s〓%2$s〓%3$d\t183.60.204.64\t183.60.204.64";
-    public static String cmdBuild = "盟军圈地开始进行建造升级〓%1$s〓%2$s〓%3$d\t183.60.204.64\t183.60.204.64";
+    //盟军读取个人圈地运动〓hy814〓123\t183.60.204.16\t183.60.204.16
+    //盟军圈地运动本次开通〓hy814〓123\t183.60.204.16\t183.60.204.16
+    //盟军圈地读取最新服务器数据\t183.60.204.16\t183.60.204.16
+    //盟军圈地掷骰子〓hy814〓123\t183.60.204.16\t183.60.204.16
+    //盟军圈地开始进行建造升级〓hy814〓123〓10005\t183.60.204.16\t183.60.204.16
+    public static String cmdReadS = "盟军圈地读取最新服务器数据\t183.60.204.16\t183.60.204.16";
+    public static String cmdReadP = "盟军读取个人圈地运动〓%1$s〓%2$s\t183.60.204.16\t183.60.204.16";
+    public static String cmdEnable = "盟军圈地运动本次开通〓%1$s〓%2$s\t183.60.204.16\t183.60.204.16";
+    public static String cmdZhiSZ = "盟军圈地掷骰子〓%1$s〓%2$s\t183.60.204.16\t183.60.204.16";
+    public static String cmdZhiZD = "盟军圈地掷骰子指定〓%1$s〓%2$s〓%3$d\t183.60.204.16\t183.60.204.16";
+    public static String cmdBuild = "盟军圈地开始进行建造升级〓%1$s〓%2$s〓%3$d\t183.60.204.16\t183.60.204.16";
 
     private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     private static final SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy年MM月dd日hh时mm分ss秒");
@@ -52,7 +52,7 @@ public class QuanDi implements Runnable {
     private static final SimpleDateFormat dateFm = new SimpleDateFormat("EEEE");
     //常量
     //服务器IP
-    private final String SERVER_IP = "183.60.204.64";
+    private final String SERVER_IP = "183.60.204.16";
     //语音端口
     private final int SERVER_PORT_CMD = 9103;
     //本地端口
@@ -907,7 +907,7 @@ public class QuanDi implements Runnable {
         public void run() {
             try {
                 log("准备发送心跳包");
-                strSend.write("心跳开始\t183.60.204.64\t183.60.204.64".getBytes(bm));
+                strSend.write("心跳开始\t183.60.204.16\t183.60.204.16".getBytes(bm));
                 strSend.flush();
                 log("心跳包发送完成~");
                 /*try {

@@ -77,7 +77,7 @@ public class SpUtils {
     }
 
     public static String getServer() {
-        return getString(SP_SERVER, "183.60.204.64");
+        return getString(SP_SERVER, "183.60.204.16");
     }
 
     private static final String SP_PORT = "SP_PORT";

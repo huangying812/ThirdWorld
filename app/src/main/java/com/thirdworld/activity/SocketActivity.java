@@ -25,10 +25,6 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import szz.com.baselib.application.ContextHolder;
-import szz.com.baselib.application.SpUtils;
-import szz.com.baselib.singleton.ConnectManager;
-
 import org.greenrobot.eventbus.Subscribe;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -46,9 +42,12 @@ import java.text.SimpleDateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import szz.com.baselib.application.ContextHolder;
+import szz.com.baselib.application.SpUtils;
 import szz.com.baselib.entity.events.ConnectState;
 import szz.com.baselib.entity.events.GetServerPack;
 import szz.com.baselib.rest.ServerSocket;
+import szz.com.baselib.singleton.ConnectManager;
 import szz.com.thirdworld.R;
 
 
@@ -637,7 +636,7 @@ public class SocketActivity extends BaseActivity implements OnClickListener{
             sendMsg(WHAT_SERVER_RESP, result);
             return;
         }
-        String[] rs = result.replaceAll("签到〓183.60.204.64", "").split("〓");
+        String[] rs = result.replaceAll("签到〓183.60.204.16", "").split("〓");
         String[] richs;
         String[] richitem;
         int[] star;
